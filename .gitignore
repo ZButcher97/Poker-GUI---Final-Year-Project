@@ -4,3 +4,4 @@ projectfiles
 *.py*
 MCU Master/
 MCU Player/MCU_PLAYER/BUILD/
+MCU Board/
