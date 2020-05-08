@@ -4,3 +4,5 @@ MCU Master/MCU_MASTER/.mbed
 MCU Master/MCU_MASTER/projectfiles
 MCU Master/MCU_MASTER/*.py*
 
+MCU Board/
+MCU Player/
