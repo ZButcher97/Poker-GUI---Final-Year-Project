@@ -1,0 +1,7 @@
+.build
+.mbed
+projectfiles
+*.py*
+MCU Board/MCU_BOARD/BUILD/
+MCU Master/
+MCU Player/
