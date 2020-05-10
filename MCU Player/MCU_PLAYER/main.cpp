@@ -13,6 +13,7 @@ int main()
         OnBoardLED = 1;
         NFC1_Check();
         NFC2_Check();    
+        SPI_Slave.write(0x52);
         wait_ms(10);
     }
 }
@@ -80,5 +81,7 @@ bool init()
         PC.printf("NFC2: Initalisation Failed...\n\r");
         return false;
     }
+    SPI_Slave.format(8,3);
+    SPI_Slave.frequency(500000);
     return true; 
 }
