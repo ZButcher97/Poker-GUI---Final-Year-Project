@@ -1,23 +1,11 @@
-/* mbed Microcontroller Library
- * Copyright (c) 2019 ARM Limited
- * SPDX-License-Identifier: Apache-2.0
- */
-
-#include "mbed.h"
-#include "platform/mbed_thread.h"
-
-
-// Blinking rate in milliseconds
-#define BLINKING_RATE_MS                                                    125
-
+#include "main.h"
 
 int main()
-{
-    // Initialise the digital pin LED1 as an output
-    DigitalOut led(LED1);
-
+{   
+    spi.format(8,3);
+    spi.frequency(500000);
     while (true) {
-        led = !led;
-        thread_sleep_for(BLINKING_RATE_MS);
+        spi.write(0x3C);
+        wait_ms(10);
     }
 }
