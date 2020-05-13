@@ -3,13 +3,20 @@
 int main()
 {
     printf("\n\r\n\r");
+    
+    SPISlave_CS.fall(&SPISlave_Start_ISR);
+
     thread_Serial.start(callback(&eq_SerialPC, &EventQueue::dispatch_forever));
+
     thread_NFC1.start(&thread_NFC1_main);
     // thread_NFC2.start(&thread_NFC2_main);
     thread_NFC3.start(&thread_NFC3_main);
     thread_NFC4.start(&thread_NFC4_main);
     thread_NFC5.start(&thread_NFC5_main);
-    // thread_NFC6.start(&thread_NFC6_main);
+    thread_NFC6.start(&thread_NFC6_main);
+
+    thread_MasterCom.start(&thread_MasterCom_main);
+    thread_MasterCom.set_priority(osPriorityAboveNormal);
 
     while (true) {
         OnBoardGreenLED = 0;
@@ -19,19 +26,70 @@ int main()
         if(button == 1)
         {
             uint8_t val1 = NFC1.PCD_ReadRegister(MFRC522::TxControlReg);   //check to see if TX1 and TX2 are enabled
-            uint8_t val2 = NFC2.PCD_ReadRegister(MFRC522::TxControlReg);   
+            // uint8_t val2 = NFC2.PCD_ReadRegister(MFRC522::TxControlReg);   
             uint8_t val3 = NFC3.PCD_ReadRegister(MFRC522::TxControlReg);   
             uint8_t val4 = NFC4.PCD_ReadRegister(MFRC522::TxControlReg);   
             uint8_t val5 = NFC5.PCD_ReadRegister(MFRC522::TxControlReg);   
             uint8_t val6 = NFC6.PCD_ReadRegister(MFRC522::TxControlReg);   
             printf("NFC1 check: %x\t", (val1 & 0x03));
-            printf("NFC2 check: %x\t", (val2 & 0x03));
+            // printf("NFC2 check: %x\t", (val2 & 0x03));
             printf("NFC3 check: %x\t", (val3 & 0x03));
             printf("NFC4 check: %x\t", (val4 & 0x03));
             printf("NFC5 check: %x\t", (val5 & 0x03));
             printf("NFC6 check: %x\n\r", (val6 & 0x03));
         }
     }
+}
+
+void SPISlave_Start_ISR()
+{
+    thread_MasterCom.flags_set(0x02);
+}
+
+void thread_MasterCom_main()
+{
+    MasterCom.reply(0x10);
+    while(1)
+    {
+        ThisThread::flags_wait_all(0x20);
+        while(MasterCom.receive())
+        {
+            int INSTR = MasterCom.read();
+            switch(INSTR)
+            {
+                case DEVICE_ACK:
+                    MasterCom.reply(0xA0);
+                break;
+
+                case UID1:                   
+                    MasterCom.reply(0x10);
+                break;
+
+                case UID2:
+                    MasterCom.reply(0x20);
+                break;
+
+                case UID3:
+                    MasterCom.reply(0x30);
+                break;
+
+                case UID4:
+                    MasterCom.reply(0x40);
+                break;
+
+                case UID5:
+                    MasterCom.reply(0x50);
+                break;
+
+                default:
+                    MasterCom.reply(0xFF);
+                break;
+            }
+        }
+
+    }
+    
+    // ThisThread::sleep_for(osWaitForever);
 }
 
 void thread_NFC1_main()
@@ -50,21 +108,21 @@ void thread_NFC1_main()
     }
 }
 
-void thread_NFC2_main()
-{
-    if(!NFC2.PCD_Init())
-    {
-        eq_SerialPC.call(printf, "NFC2 Initalisation Failed... \n\r");
-        ThisThread::sleep_for(osWaitForever);
-    }
-    eq_SerialPC.call(printf, "NFC2 Initalisation Successful... \n\r");
+// void thread_NFC2_main()
+// {
+//     if(!NFC2.PCD_Init())
+//     {
+//         eq_SerialPC.call(printf, "NFC2 Initalisation Failed... \n\r");
+//         ThisThread::sleep_for(osWaitForever);
+//     }
+//     eq_SerialPC.call(printf, "NFC2 Initalisation Successful... \n\r");
 
-    while(1)
-    {
-        while(!NFC_Check(NFC2)){ThisThread::sleep_for(100);}               //Sleep this thread while no new card present
-        eq_SerialPC.call(printf, "New Card 2 UID: %s\n\r", NFC2.POKER_ReadCardUID().c_str());
-    }
-}
+//     while(1)
+//     {
+//         while(!NFC_Check(NFC2)){ThisThread::sleep_for(100);}               //Sleep this thread while no new card present
+//         eq_SerialPC.call(printf, "New Card 2 UID: %s\n\r", NFC2.POKER_ReadCardUID().c_str());
+//     }
+// }
 
 void thread_NFC3_main()
 {

@@ -49,11 +49,14 @@
 
 //Hardware Definitions
 MFRC522 NFC1(NFC1_MOSI, NFC1_MISO, NFC1_SCLK, NFC1_CS, NFC1_RST);
-MFRC522 NFC2(NFC2_MOSI, NFC2_MISO, NFC2_SCLK, NFC2_CS, NFC2_RST);
+// MFRC522 NFC2(NFC2_MOSI, NFC2_MISO, NFC2_SCLK, NFC2_CS, NFC2_RST);
 MFRC522 NFC3(NFC3_MOSI, NFC3_MISO, NFC3_SCLK, NFC3_CS, NFC3_RST);
 MFRC522 NFC4(NFC4_MOSI, NFC4_MISO, NFC4_SCLK, NFC4_CS, NFC4_RST);
 MFRC522 NFC5(NFC5_MOSI, NFC5_MISO, NFC5_SCLK, NFC5_CS, NFC5_RST);
 MFRC522 NFC6(NFC6_MOSI, NFC6_MISO, NFC6_SCLK, NFC6_CS, NFC6_RST);
+
+SPISlave MasterCom(NFC2_MOSI, NFC2_MISO, NFC2_SCLK, NFC2_CS);
+InterruptIn SPISlave_CS(NFC2_CS);
 
 DigitalOut OnBoardGreenLED(LED1);
 DigitalOut OnBoardBlueLED(LED2);
@@ -64,7 +67,7 @@ Serial PC(USBTX, USBRX);
 
 //Threads
 Thread      thread_NFC1;
-Thread      thread_NFC2;
+// Thread      thread_NFC2;
 Thread      thread_NFC3;
 Thread      thread_NFC4;
 Thread      thread_NFC5;
@@ -77,10 +80,14 @@ Thread      thread_AllNFC;
 EventQueue  eq_SerialPC;
 
 //Function Prototypes
+void SPISlave_Start_ISR();
+void thread_MasterCom_main();
 void thread_NFC1_main();
-void thread_NFC2_main();
+// void thread_NFC2_main();
 void thread_NFC3_main();
 void thread_NFC4_main();
 void thread_NFC5_main();
 void thread_NFC6_main();
 // void thread_AllNFC_main();
+
+enum INSTRUCTIONS { DEVICE_ACK, UID1, UID2, UID3, UID4, UID5};
