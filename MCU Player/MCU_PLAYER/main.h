@@ -38,20 +38,14 @@ DigitalOut  OnBoardLED(LED_RED);
 void        thread_NFC1_main();                     //NFC 1 thread main function
 void        thread_NFC2_main();                     //NFC 2 thread main function
 void        thread_MasterCom_main();                //SPI communication to Master board main loop (SPISlave)
-bool        NFC1_Check();                           //Check if new card is present on NFC reader 1
-bool        NFC2_Check();                           //Check if new card is present on NFC reader 2
 
 //RtOS
 Thread      thread_NFC1;
 Thread      thread_NFC2;
 Thread      thread_MasterCom;
 Thread      thread_Serial;
-EventQueue  eq_SerialPC;
-Mutex       CARD1;
-Mutex       CARD2;
 
-//Global Variables
-std::string CARD1_UID;
-std::string CARD2_UID;
+EventQueue  eq_SerialPC;
+
 
 #endif

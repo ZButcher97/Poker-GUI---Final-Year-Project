@@ -32,8 +32,10 @@ void thread_NFC1_main()
     //NFC1 Main loop
     while(1)
     {
-        while(!NFC1_Check()){ThisThread::sleep_for(100);}               //Sleep this thread while no new card present
-        eq_SerialPC.call(printf, "New Card 1 UID: %s\n\r", CARD1_UID.c_str());
+        // while(!NFC1_Check()){ThisThread::sleep_for(100);}               //Sleep this thread while no new card present
+        // eq_SerialPC.call(printf, "New Card 1 UID: %s\n\r", CARD1_UID.c_str());
+        while(!NFC_Check(NFC1)){ThisThread::sleep_for(100);}               //Sleep this thread while no new card present
+        eq_SerialPC.call(printf, "New Card 1 UID: %s\n\r", NFC1.POKER_ReadCardUID().c_str());
     }
 }
 
@@ -49,8 +51,10 @@ void thread_NFC2_main()
 
     while(1)
     {
-        while(!NFC2_Check()){ThisThread::sleep_for(100);}               //Sleep this thread while no new card present
-        eq_SerialPC.call(printf, "New Card 2 UID: %s\n\r", CARD2_UID.c_str());
+        // while(!NFC2_Check()){ThisThread::sleep_for(100);}               //Sleep this thread while no new card present
+        // eq_SerialPC.call(printf, "New Card 2 UID: %s\n\r", CARD2_UID.c_str());
+        while(!NFC_Check(NFC2)){ThisThread::sleep_for(100);}               //Sleep this thread while no new card present
+        eq_SerialPC.call(printf, "New Card 2 UID: %s\n\r", NFC2.POKER_ReadCardUID().c_str());
     }
 }
 
@@ -61,60 +65,4 @@ void thread_MasterCom_main()
     {
         ThisThread::sleep_for(osWaitForever);
     }
-}
-
-//Check if new card is present on NFC reader 1
-bool NFC1_Check()
-{
-    if (!NFC1.PICC_IsNewCardPresent() || !NFC1.PICC_ReadCardSerial())   //Check if new card is present and readable on NFC reader
-    {
-        return false;
-    }      
-
-    char UID_received[100];
-    std::string UID_Rec;
-    for (uint8_t i = 0; i < NFC1.uid.size; i++)                         //Get new cards UID
-    {
-        sprintf(UID_received, "%X", NFC1.uid.uidByte[i]);
-        UID_Rec = UID_Rec + UID_received;
-    }
-
-    CARD1.lock();
-    if(UID_Rec == CARD1_UID)                                       //Check if current card is different from last card
-    {
-        CARD1.unlock();
-        return false;
-    }    
-    CARD1_UID = UID_Rec;                                           //Update current UID and return true;
-    CARD1.unlock();
-
-    return true;           
-}
-
-//Check if new card is present on NFC reader 2
-bool NFC2_Check()
-{
-    if (!NFC2.PICC_IsNewCardPresent() || !NFC2.PICC_ReadCardSerial())   //Check if new card is present and readable on NFC reader
-    {
-        return false;
-    }      
-
-    char UID_received[100];
-    std::string UID_Rec;
-    for (uint8_t i = 0; i < NFC2.uid.size; i++)                         //Get new cards UID
-    {
-        sprintf(UID_received, "%X", NFC2.uid.uidByte[i]);
-        UID_Rec = UID_Rec + UID_received;
-    }
-    
-    CARD2.lock();
-    if(UID_Rec == CARD2_UID)                                       //Check if current card is different from last card
-    {
-        CARD2.unlock();
-        return false;
-    }   
-    CARD2_UID = UID_Rec;                                           //Update current UID and return true;
-    CARD2.unlock();
-
-    return true;            
 }

@@ -80,7 +80,53 @@ MFRC522::~MFRC522()
 /////////////////////////////////////////////////////////////////////////////////////
 // Basic interface functions for communicating with the MFRC522
 /////////////////////////////////////////////////////////////////////////////////////
- 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                         Custom Class Methods added in for this specific project
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+string MFRC522::POKER_ReadCardUID()
+{
+    mutexCard.lock();
+    string ReturnString;
+    ReturnString = CardUID;
+    mutexCard.unlock();
+    return ReturnString;
+}
+
+void MFRC522::POKER_WriteCardUID(string new_UID)
+{
+    mutexCard.lock();
+    CardUID = new_UID;
+    mutexCard.unlock();
+}
+
+bool NFC_Check(MFRC522 &NFC)
+{
+    if (!NFC.PICC_IsNewCardPresent() || !NFC.PICC_ReadCardSerial())   //Check if new card is present and readable on NFC reader
+    {
+        return false;
+    }      
+
+    char UID_received[100];
+    std::string UID_Rec;
+    for (uint8_t i = 0; i < NFC.uid.size; i++)                         //Get new cards UID
+    {
+        sprintf(UID_received, "%X", NFC.uid.uidByte[i]);
+        UID_Rec = UID_Rec + UID_received;
+    }
+
+    if(UID_Rec == NFC.POKER_ReadCardUID())                                       //Check if current card is different from last card
+    {
+        return false;
+    }       
+    NFC.POKER_WriteCardUID(UID_Rec);                                            //Update current UID and return true;
+
+    return true;        
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                          End of Custom Methods
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 /**
  * Writes a byte to the specified register in the MFRC522 chip.
  * The interface is described in the datasheet section 8.1.2.
@@ -251,11 +297,13 @@ bool MFRC522::PCD_Init()
 {
     /* Reset MFRC522 */
     m_RESET = 0;
-    wait_ms(10);
+    //wait_ms(10);
+    ThisThread::sleep_for(10); //Replaced Wait with Thread sleep as the supporting hardware allows threads and RToS
     m_RESET = 1;
     
     // Section 8.8.2 in the datasheet says the oscillator start-up time is the start up time of the crystal + 37,74us. Let us be generous: 50ms.
-    wait_ms(50);
+    ThisThread::sleep_for(50);
+    //wait_ms(50);
     
     // When communicating with a PICC we need a timeout if something goes wrong.
     // f_timer = 13.56 MHz / (2*TPreScaler+1) where TPreScaler = [TPrescaler_Hi:TPrescaler_Lo].
@@ -286,7 +334,8 @@ void MFRC522::PCD_Reset()
   // The datasheet does not mention how long the SoftRest command takes to complete.
   // But the MFRC522 might have been in soft power-down mode (triggered by bit 4 of CommandReg)
   // Section 8.8.2 in the datasheet says the oscillator start-up time is the start up time of the crystal + 37,74us. Let us be generous: 50ms.
-  wait_ms(50);
+  //wait_ms(50);
+  ThisThread::sleep_for(50);
  
   // Wait for the PowerDown bit in CommandReg to be cleared
   while (PCD_ReadRegister(CommandReg) & (1<<4))
