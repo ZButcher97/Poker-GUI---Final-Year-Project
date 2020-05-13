@@ -1,5 +1,7 @@
 #include "mbed.h"
 #include "platform/mbed_thread.h"
+#include "MFRC522.h"
+#include <string>
 
 //SPI1
 #define NFC1_SCLK           PA_5
@@ -43,8 +45,29 @@
 #define NFC6_CS             PG_8
 #define NFC6_RST            PE_15
 
+MFRC522 NFC1(NFC1_MOSI, NFC1_MISO, NFC1_SCLK, NFC1_CS, NFC1_RST);
+// MFRC522 NFC2(NFC2_MOSI, NFC2_MISO, NFC2_SCLK, NFC2_CS, NFC2_RST);
+// MFRC522 NFC3(NFC3_MOSI, NFC3_MISO, NFC3_SCLK, NFC3_CS, NFC3_RST);
+MFRC522 NFC4(NFC4_MOSI, NFC4_MISO, NFC4_SCLK, NFC4_CS, NFC4_RST);
+
 // Initialise the digital pin LED1 as an output
-DigitalOut led(LED1);
+DigitalOut OnBoardGreenLED(LED1);
 Serial PC(USBTX, USBRX);
 
-EventQueue eq_SerialPC;
+
+
+
+//RtOS
+Thread      thread_NFC1;
+Thread      thread_NFC2;
+Thread      thread_NFC3;
+Thread      thread_NFC4;
+Thread      thread_MasterCom;
+Thread      thread_Serial;
+
+EventQueue  eq_SerialPC;
+
+void thread_NFC1_main();
+void thread_NFC2_main();
+void thread_NFC3_main();
+void thread_NFC4_main();
