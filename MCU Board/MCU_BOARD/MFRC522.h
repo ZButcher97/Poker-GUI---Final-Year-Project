@@ -772,7 +772,7 @@ enum PCD_Register {
   
   string POKER_ReadCardUID();                   //Class method to allow UID of poker card to be read
   void POKER_WriteCardUID(string new_UID);      //Class method to allow UID of poker card to be written
-
+  bool IsReaderResponsive();
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                          End of Custom Methods
