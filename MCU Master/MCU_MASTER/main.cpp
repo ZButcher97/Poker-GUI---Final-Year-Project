@@ -1,23 +1,16 @@
-/* mbed Microcontroller Library
- * Copyright (c) 2019 ARM Limited
- * SPDX-License-Identifier: Apache-2.0
- */
-
-#include "mbed.h"
-#include "platform/mbed_thread.h"
-
-
-// Blinking rate in milliseconds
-#define BLINKING_RATE_MS                                                    500
-
+#include "main.h"
 
 int main()
 {
-    // Initialise the digital pin LED1 as an output
-    DigitalOut led(LED1);
-
+    PlayerCOM.format(8, 0);
+    PlayerCOM.frequency(8000000);
     while (true) {
-        led = !led;
-        thread_sleep_for(BLINKING_RATE_MS);
+        PlayerCOM.write(0x50);
+        int UID_1 = PlayerCOM.write(0x00);
+        int UID_2 = PlayerCOM.write(0x00);
+        int UID_3 = PlayerCOM.write(0x00);
+        int UID_4 = PlayerCOM.write(0x00);
+        printf("Received UID: %x%x%x%x", UID_1, UID_2, UID_3, UID_4);
+        ThisThread::sleep_for(1000);
     }
 }
