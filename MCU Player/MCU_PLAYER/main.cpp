@@ -12,6 +12,7 @@ int main()
     thread_NFC2.start(&thread_NFC2_main);
     thread_MasterCom.start(&thread_MasterCom_main);
     thread_MasterCom.set_priority(osPriorityAboveNormal);
+    MasterComCS.fall(&test);
 
     //Heartbeat LED
     while (true) {
@@ -62,31 +63,30 @@ void thread_NFC2_main()
 void thread_MasterCom_main()
 {
     while(1)
-    {
-        while(button == 1){}     
-        ThisThread::sleep_for(1000);
-        // SPI_Slave.reply(0x00);
-        // ThisThread::flags_wait_all(0x20);
-        // eq_SerialPC.call(printf, "SPI Master requesting Data...\n\r");
-        // while(!SPI_Slave.receive());
-        // int DATA = SPI_Slave.read();
-        // if(DATA == 0x20)
-        // {            
-        //     char *UID_array;
-        //     string UID_string = NFC1.POKER_ReadCardUID();
-        //     memcmp(UID_array, UID_string.data(), UID_string.length());
+    {    
+        eq_SerialPC.call(printf, "Master Com Thread... \n\r");
+        SPI_Slave.reply(0x00);
+        ThisThread::flags_wait_all(0x20);
+        eq_SerialPC.call(printf, "SPI Master requesting Data...\n\r");
+        while(!SPI_Slave.receive());
+        int DATA = SPI_Slave.read();
+        if(DATA == 0x20)
+        {            
+            char *UID_array;
+            string UID_string = NFC1.POKER_ReadCardUID();
+            memcmp(UID_array, UID_string.data(), UID_string.length());
             
-        //     eq_SerialPC.call(printf, "Sending %X\n\r", UID_array[0]);
-        //     SPI_Slave.reply(UID_array[0]); //make string into int
-        //     for(int i = 1; i < 5; i++)
-        //     {
-        //         while(!SPI_Slave.receive());  
-        //         eq_SerialPC.call(printf, "Sending %X", UID_array[i]);
-        //         SPI_Slave.reply(UID_array[i]); //make string into int
-        //     }
-        //     eq_SerialPC.call(printf, "\n\r");
-        // }  
-        // eq_SerialPC.call(printf, "Finished Sending data to Master MCU\n\r");              
+            eq_SerialPC.call(printf, "Sending %X\n\r", UID_array[0]);
+            SPI_Slave.reply(UID_array[0]); //make string into int
+            for(int i = 1; i < 5; i++)
+            {
+                while(!SPI_Slave.receive());  
+                eq_SerialPC.call(printf, "Sending %X", UID_array[i]);
+                SPI_Slave.reply(UID_array[i]); //make string into int
+            }
+            eq_SerialPC.call(printf, "\n\r");
+        }  
+        eq_SerialPC.call(printf, "Finished Sending data to Master MCU\n\r");              
     }
 }
 
