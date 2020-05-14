@@ -6,14 +6,27 @@ int main()
     //Set up threads
     
     // MasterComCS.fall(&test);
-
-    thread_Serial.start(callback(&eq_SerialPC, &EventQueue::dispatch_forever));
-    thread_NFC1.start(&thread_NFC1_main);    
-    thread_NFC2.start(&thread_NFC2_main);
-    thread_MasterCom.start(&thread_MasterCom_main);
-    thread_MasterCom.set_priority(osPriorityAboveNormal);
+    SPI_Slave.format(8, 0);
+    SPI_Slave.frequency(8000000);
+    // thread_Serial.start(callback(&eq_SerialPC, &EventQueue::dispatch_forever));
+    // thread_NFC1.start(&thread_NFC1_main);    
+    // thread_NFC2.start(&thread_NFC2_main);
+    // thread_MasterCom.start(&thread_MasterCom_main);
+    // thread_MasterCom.set_priority(osPriorityAboveNormal);
     // MasterComCS.fall(&test);
-
+    int v = 0;
+    PC.printf("Start...\n\r");
+    while(1)
+    {
+        if(SPI_Slave.receive()) {
+           v = SPI_Slave.read();
+           SPI_Slave.reply(0x5A);         // Make this the next reply
+        }
+        if(v != 0)
+        {
+            PC.printf("Received Value: %x\n\r", v);
+        }
+    }
     //Heartbeat LED
     while (true) {
         OnBoardLED = 1;
@@ -63,13 +76,15 @@ void thread_NFC2_main()
 void thread_MasterCom_main()
 {
     PC.printf("\n\rEntering Master Thread\n\r");
+    SPI_Slave.reply(0x5A);  
     while(1)
-    {    
-        if(SPI_Slave.receive()) {
-           int v = SPI_Slave.read();   // Read byte from master
-           SPI_Slave.reply(0x5A);         // Make this the next reply
-           PC.printf("Hex Received: %X", v);
-        }
+    {            
+        while(!SPI_Slave.receive()){}
+        PC.printf("Receiving data\n\r");    
+        int v = SPI_Slave.read();   // Read byte from master
+        SPI_Slave.reply(0x5A);         // Make this the next reply
+        PC.printf("Hex Received: %X", v);
+        
         // eq_SerialPC.call(printf, "Master Com Thread... \n\r");
         // SPI_Slave.reply(0xA5);
         // ThisThread::flags_wait_all(0x20);
