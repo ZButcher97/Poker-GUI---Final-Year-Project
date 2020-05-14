@@ -30,9 +30,11 @@
 //Hardware Defines
 MFRC522     NFC1(NFC1_MOSI, NFC1_MISO, NFC1_SCLK, NFC1_CS, NFC1_RST);
 MFRC522     NFC2(NFC2_MOSI, NFC2_MISO, NFC2_SCLK, NFC2_CS, NFC2_RST);
-SPI         SPI_Slave(SPI_SLAVE_MOSI, SPI_SLAVE_MISO, SPI_SLAVE_SCLK, SPI_SLAVE_CS);
+SPISlave    SPI_Slave(SPI_SLAVE_MOSI, SPI_SLAVE_MISO, SPI_SLAVE_SCLK, SPI_SLAVE_CS);
 Serial      PC(USBTX, USBRX);
 DigitalOut  OnBoardLED(LED_RED);
+InterruptIn MasterComCS(SPI_SLAVE_CS);
+DigitalIn button(USER_BUTTON);
 
 //Function Prototypes
 void        thread_NFC1_main();                     //NFC 1 thread main function
@@ -47,5 +49,6 @@ Thread      thread_Serial;
 
 EventQueue  eq_SerialPC;
 
+void test();
 
 #endif
