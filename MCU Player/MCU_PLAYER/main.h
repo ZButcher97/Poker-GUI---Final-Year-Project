@@ -22,10 +22,10 @@
 #define     NFC2_CS                 PB_5            //Chip select for NFC card 1
 
     //SPI1
-#define     SPI_SLAVE_SCLK          PA_5
-#define     SPI_SLAVE_MISO          PA_6
-#define     SPI_SLAVE_MOSI          PA_7
-#define     SPI_SLAVE_CS            PA_4
+#define     SPI_SLAVE_SCLK          PB_13
+#define     SPI_SLAVE_MISO          PB_14
+#define     SPI_SLAVE_MOSI          PB_15
+#define     SPI_SLAVE_CS            PB_12
 
 //Hardware Defines
 MFRC522     NFC1(NFC1_MOSI, NFC1_MISO, NFC1_SCLK, NFC1_CS, NFC1_RST);
@@ -36,7 +36,6 @@ DigitalOut  OnBoardLED(LED_RED);
 InterruptIn MasterComCS(SPI_SLAVE_CS);
 DigitalIn button(USER_BUTTON);
 
-I2CSlave TestI2C(PB_9, PB_8);
 //Function Prototypes
 void        thread_NFC1_main();                     //NFC 1 thread main function
 void        thread_NFC2_main();                     //NFC 2 thread main function

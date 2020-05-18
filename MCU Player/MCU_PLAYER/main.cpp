@@ -4,33 +4,11 @@
 int main()
 {
 
-char buf[10];
-   char msg[] = "Slave!";
-
-   TestI2C.address(0x90);
-   while (1) {
-       int i = TestI2C.receive();
-       switch (i) {
-           case I2CSlave::ReadAddressed:
-               TestI2C.write(msg, strlen(msg) + 1); // Includes null char
-               break;
-           case I2CSlave::WriteGeneral:
-               TestI2C.read(buf, 10);
-               printf("Read G: %s\n", buf);
-               break;
-           case I2CSlave::WriteAddressed:
-               TestI2C.read(buf, 10);
-               printf("Read A: %s\n", buf);
-               break;
-       }
-       for(int i = 0; i < 10; i++) buf[i] = 0;    // Clear buffer
-
-   }
     //Set up threads
     
     // MasterComCS.fall(&test);
     SPI_Slave.format(8, 0);
-    SPI_Slave.frequency(8000000);
+    SPI_Slave.frequency(100000);
     // thread_Serial.start(callback(&eq_SerialPC, &EventQueue::dispatch_forever));
     // thread_NFC1.start(&thread_NFC1_main);    
     // thread_NFC2.start(&thread_NFC2_main);
@@ -39,16 +17,13 @@ char buf[10];
     // MasterComCS.fall(&test);
     int v = 0;
     PC.printf("Start...\n\r");
+    SPI_Slave.reply(0x5A);   
     while(1)
     {
-        if(SPI_Slave.receive()) {
-           v = SPI_Slave.read();
-           SPI_Slave.reply(0x5A);         // Make this the next reply
-        }
-        if(v != 0)
-        {
-            PC.printf("Received Value: %x\n\r", v);
-        }
+        while(!SPI_Slave.receive()) {}
+        v = SPI_Slave.read();
+        SPI_Slave.reply(0x5A);         // Make this the next reply
+        PC.printf("Received Value: %x\n\r", v);
     }
     //Heartbeat LED
     while (true) {
