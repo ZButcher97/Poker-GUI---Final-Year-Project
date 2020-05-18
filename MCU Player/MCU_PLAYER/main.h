@@ -36,6 +36,7 @@ DigitalOut  OnBoardLED(LED_RED);
 InterruptIn MasterComCS(SPI_SLAVE_CS);
 DigitalIn button(USER_BUTTON);
 
+I2CSlave TestI2C(PB_9, PB_8);
 //Function Prototypes
 void        thread_NFC1_main();                     //NFC 1 thread main function
 void        thread_NFC2_main();                     //NFC 2 thread main function
