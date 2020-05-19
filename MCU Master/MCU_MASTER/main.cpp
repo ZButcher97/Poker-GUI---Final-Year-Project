@@ -2,38 +2,22 @@
 
 int main()
 {
-   
-    PlayerCOM.format(8, 0);
-    PlayerCOM.frequency(100000);
-    CS = 1;
-    ThisThread::sleep_for(5000);
-    printf("\n\r\n\rStarting Com...\n\r");
-    while (true) {
-        CS = 0;
-        wait_us(10);
-        int UID_1 = PlayerCOM.write(0xFE);
-        wait_us(10);
-        CS = 1;
-        wait_us(10);
-        // wait_us(50);
-        // PlayerCS = 0;
-        // int UID_1 = PlayerCOM.write(0x00);
-        // PlayerCS = 1;
-        // wait_us(50);
-        // PlayerCS = 0;
-        // int UID_2 = PlayerCOM.write(0x00);
-        // PlayerCS = 1;0
-        // wait_us(50);
-        // PlayerCS = 0;
-        // int UID_3 = PlayerCOM.write(0x00);
-        // PlayerCS = 1;
-        // wait_us(50);
-        // PlayerCS = 0;
-        // int UID_4 = PlayerCOM.write(0x00);
-        // PlayerCS = 1;
+    //This is for testing while communicating over SPI between STM boards doesnt work...
+    //Once this communication works, that will just need drop in replacing for these pre-set values and continouse updating
+    Player1.WriteCard(Poker_Player::card1, SIM_CARD1UID);
+    Player1.WriteCard(Poker_Player::card2, SIM_CARD2UID);
+    Board.WriteCard(Poker_Board::flop1, SIM_CARD3UID);
+    Board.WriteCard(Poker_Board::flop2, SIM_CARD4UID);
+    Board.WriteCard(Poker_Board::flop3, SIM_CARD5UID);
+    Board.WriteCard(Poker_Board::turn, SIM_CARD6UID);
+    Board.WriteCard(Poker_Board::river, SIM_CARD7UID);
+    //End of sim data
+    printf("Start\n\r");
+    networktest();
 
-        // printf("Received UID: %x %x %x %x\n\r", UID_1, UID_2, UID_3, UID_4);
-        printf("Received UID: %x\n\r", UID_1);
-        ThisThread::sleep_for(1000);
+    while (true) {
+        printf("Player1 Card1 Should be: %x\n\r", SIM_CARD1UID);
+        printf("Player1 Card1 Will be:   %x\n\r", Player1.ReadCard(Poker_Player::card1));
+        ThisThread::sleep_for(osWaitForever);
     }
 }
