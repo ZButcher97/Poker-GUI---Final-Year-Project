@@ -22,10 +22,10 @@
 #define     NFC2_CS                 PB_5            //Chip select for NFC card 1
 
     //SPI1
-#define     SPI_SLAVE_SCLK          PB_13
-#define     SPI_SLAVE_MISO          PB_14
-#define     SPI_SLAVE_MOSI          PB_15
-#define     SPI_SLAVE_CS            PB_12
+#define     SPI_SLAVE_SCLK          D13
+#define     SPI_SLAVE_MISO          D12
+#define     SPI_SLAVE_MOSI          D11
+#define     SPI_SLAVE_CS            D10
 
 //Hardware Defines
 MFRC522     NFC1(NFC1_MOSI, NFC1_MISO, NFC1_SCLK, NFC1_CS, NFC1_RST);
