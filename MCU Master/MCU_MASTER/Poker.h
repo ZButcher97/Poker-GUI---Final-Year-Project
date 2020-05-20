@@ -3,6 +3,22 @@
 
 #include "mbed.h"
 
+const char* UID_Lookup[52][2] = {
+    {"D057FEA", "5S"},
+    {"D057FEA", "5S"},
+    {"D057FEA", "5S"},
+    {"D057FEA", "5S"},
+    {"D057FEA", "5S"},
+    {"D057FEA", "5S"},
+    {"D057FEA", "5S"},
+    {"D057FEA", "5S"},
+    {"D057FEA", "5S"},
+    {"D057FEA", "5S"},
+    {"D057FEA", "5S"},
+    {"D057FEA", "5S"},
+    {"D057FEA", "5S"}
+};
+
 class Poker_Player
 {
 public:

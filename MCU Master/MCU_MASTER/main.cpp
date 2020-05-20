@@ -13,7 +13,24 @@ int main()
     Board.WriteCard(Poker_Board::river, SIM_CARD7UID);
     //End of sim data
     printf("Start\n\r");
-    networktest();
+    P1_C1_Value = Card_Value(CARD_SUITS::Spade, "4");
+    P1_C2_Value = Card_Value(CARD_SUITS::Diamond, "A");
+    P2_C1_Value = Card_Value(CARD_SUITS::Heart, "Q");
+    P2_C2_Value = Card_Value(CARD_SUITS::Club, "K");
+    P3_C1_Value = Card_Value(CARD_SUITS::Spade, "J");
+    P3_C2_Value = Card_Value(CARD_SUITS::Diamond, "1");
+    B1_Value = Card_Value(CARD_SUITS::Heart, "4");
+    B2_Value = Card_Value(CARD_SUITS::Club, "5");
+    B3_Value = Card_Value(CARD_SUITS::Spade, "7");
+    B4_Value = Card_Value(CARD_SUITS::Diamond, "8");
+    B5_Value = Card_Value(CARD_SUITS::Heart, "10");
+    B4_Value = "";
+    
+    if(!Network_Init())
+    {
+        printf("Network Initalisation failed...\n\r");
+        ThisThread::sleep_for(osWaitForever);
+    }
 
     while (true) {
         printf("Player1 Card1 Should be: %x\n\r", SIM_CARD1UID);
