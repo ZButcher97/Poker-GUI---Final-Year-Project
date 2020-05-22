@@ -1,5 +1,5 @@
 EDA Netlist Writer report for FinalYearProject
-Fri May 22 18:39:43 2020
+Fri May 22 21:25:34 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -36,7 +36,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Fri May 22 18:39:43 2020 ;
+; EDA Netlist Writer Status ; Successful - Fri May 22 21:25:34 2020 ;
 ; Revision Name             ; FinalYearProject                      ;
 ; Top-level Entity Name     ; VGA_Controller                        ;
 ; Family                    ; Cyclone IV E                          ;
@@ -66,20 +66,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------------------------+------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; Simulation Generated Files                                                                                                           ;
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; Generated Files                                                                                                                      ;
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/FinalYearProject_6_1200mv_85c_slow.vho      ;
-; C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/FinalYearProject_6_1200mv_0c_slow.vho       ;
-; C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/FinalYearProject_min_1200mv_0c_fast.vho     ;
-; C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/FinalYearProject.vho                        ;
-; C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/FinalYearProject_6_1200mv_85c_vhd_slow.sdo  ;
-; C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/FinalYearProject_6_1200mv_0c_vhd_slow.sdo   ;
-; C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/FinalYearProject_min_1200mv_0c_vhd_fast.sdo ;
-; C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/FinalYearProject_vhd.sdo                    ;
-+--------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                                                            ;
++-----------------------------------------------------------------------------------------------------------------------+
+; Generated Files                                                                                                       ;
++-----------------------------------------------------------------------------------------------------------------------+
+; C:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim/FinalYearProject_6_1200mv_85c_slow.vho      ;
+; C:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim/FinalYearProject_6_1200mv_0c_slow.vho       ;
+; C:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim/FinalYearProject_min_1200mv_0c_fast.vho     ;
+; C:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim/FinalYearProject.vho                        ;
+; C:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim/FinalYearProject_6_1200mv_85c_vhd_slow.sdo  ;
+; C:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim/FinalYearProject_6_1200mv_0c_vhd_slow.sdo   ;
+; C:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim/FinalYearProject_min_1200mv_0c_vhd_fast.sdo ;
+; C:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim/FinalYearProject_vhd.sdo                    ;
++-----------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -88,21 +88,21 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri May 22 18:39:40 2020
+    Info: Processing started: Fri May 22 21:25:31 2020
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off FinalYearProject -c FinalYearProject
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (204019): Generated file FinalYearProject_6_1200mv_85c_slow.vho in folder "C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file FinalYearProject_6_1200mv_0c_slow.vho in folder "C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file FinalYearProject_min_1200mv_0c_fast.vho in folder "C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file FinalYearProject.vho in folder "C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file FinalYearProject_6_1200mv_85c_vhd_slow.sdo in folder "C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file FinalYearProject_6_1200mv_0c_vhd_slow.sdo in folder "C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file FinalYearProject_min_1200mv_0c_vhd_fast.sdo in folder "C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file FinalYearProject_vhd.sdo in folder "C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file FinalYearProject_6_1200mv_85c_slow.vho in folder "C:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file FinalYearProject_6_1200mv_0c_slow.vho in folder "C:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file FinalYearProject_min_1200mv_0c_fast.vho in folder "C:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file FinalYearProject.vho in folder "C:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file FinalYearProject_6_1200mv_85c_vhd_slow.sdo in folder "C:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file FinalYearProject_6_1200mv_0c_vhd_slow.sdo in folder "C:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file FinalYearProject_min_1200mv_0c_vhd_fast.sdo in folder "C:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file FinalYearProject_vhd.sdo in folder "C:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4646 megabytes
-    Info: Processing ended: Fri May 22 18:39:43 2020
+    Info: Peak virtual memory: 4644 megabytes
+    Info: Processing ended: Fri May 22 21:25:34 2020
     Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Total CPU time (on all processors): 00:00:03
 
 

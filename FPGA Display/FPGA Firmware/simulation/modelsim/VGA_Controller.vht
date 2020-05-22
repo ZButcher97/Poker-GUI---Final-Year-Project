@@ -1,31 +1,6 @@
--- Copyright (C) 2018  Intel Corporation. All rights reserved.
--- Your use of Intel Corporation's design tools, logic functions 
--- and other software and tools, and its AMPP partner logic 
--- functions, and any output files from any of the foregoing 
--- (including device programming or simulation files), and any 
--- associated documentation or information are expressly subject 
--- to the terms and conditions of the Intel Program License 
--- Subscription Agreement, the Intel Quartus Prime License Agreement,
--- the Intel FPGA IP License Agreement, or other applicable license
--- agreement, including, without limitation, that your use is for
--- the sole purpose of programming logic devices manufactured by
--- Intel and sold by Intel or its authorized distributors.  Please
--- refer to the applicable agreement for further details.
-
--- ***************************************************************************
--- This file contains a Vhdl test bench template that is freely editable to   
--- suit user's needs .Comments are provided in each section to help the user  
--- fill out necessary details.                                                
--- ***************************************************************************
--- Generated on "05/22/2020 18:00:01"
-                                                            
--- Vhdl Test Bench template for design  :  VGA_Controller
--- 
--- Simulation tool : ModelSim-Altera (VHDL)
--- 
-
 LIBRARY ieee;                                               
-USE ieee.std_logic_1164.all;                                
+USE ieee.std_logic_1164.all;
+use ieee.numeric_std.all;                                
 
 ENTITY VGA_Controller_vhd_tst IS
 END VGA_Controller_vhd_tst;
@@ -79,7 +54,7 @@ BEGIN
 	Red_Data <= "111";
 	Green_Data <= "111";
 	Blue_Data <= "00";
-	for i in 0 to 430000 loop
+	for i in 0 to 1000000 loop
       CLK <= '1';	
 		wait for 20 ns;
 		CLK <= '0';
@@ -92,129 +67,161 @@ Output : PROCESS
                                      
 BEGIN            
 	wait for 50 ns;                                             
-	for i in 0 to 525 loop
-		for j in 0 to 800 loop
-			if(i < 480) then 			--V DA
-				if(j < 640) then		--H DA
+	for i in 1 to 525 loop
+		for j in 1 to 800 loop
+			if(i <= 480) then 			--V DA
+				if(j <= 640) then		--H DA
 					assert (Red = Red_Data) 		report "H-DA V-DA Red Incorrect" 	severity ERROR;
 					assert (Green = Green_Data) 	report "H-DA V-DA Green Incorrect" 	severity ERROR;
 					assert (Blue = Blue_Data) 		report "H-DA V-DA Blue Incorrect" 	severity ERROR;
 					assert (Hsync = '0') 			report "H-DA V-DA Hsync Incorrect" 	severity ERROR;
 					assert (Vsync = '0') 			report "H-DA V-DA Vsync Incorrect" 	severity ERROR;
+					assert H_Address = std_logic_vector(to_unsigned(j, H_Address'Length))	report "H-DA V-DA H_Address incorrect"	severity ERROR;
+					assert V_Address = std_logic_vector(to_unsigned(i, V_Address'Length))	report "H-DA V-DA V_Address incorrect"	severity ERROR;
 
-				elsif(j < 656) then	--H FP
+				elsif(j <= 656) then	--H FP
 					assert (Red = "000") 			report "H-FP V-DA Red Incorrect" 	severity ERROR;
 					assert (Green = "000") 			report "H-FP V-DA Green Incorrect" 	severity ERROR;
 					assert (Blue = "00") 			report "H-FP V-DA Blue Incorrect" 	severity ERROR;
 					assert (Hsync = '0') 			report "H-FP V-DA Hsync Incorrect" 	severity ERROR;
 					assert (Vsync = '0') 			report "H-FP V-DA Vsync Incorrect" 	severity ERROR;
+					assert H_Address = "0000000000"	report "H-DA V-DA H_Address incorrect"	severity ERROR;
+					assert V_Address = std_logic_vector(to_unsigned(i, V_Address'Length))	report "H-DA V-DA V_Address incorrect"	severity ERROR;
 				
-				elsif(J < 752) then 	--H SP
+				elsif(j <= 752) then 	--H SP
 					assert (Red = "000") 		report "H-SP V-DA Red Incorrect" 	severity ERROR;
 					assert (Green = "000") 	 	report "H-SP V-DA Green Incorrect" 	severity ERROR;
 					assert (Blue = "00") 		report "H-SP V-DA Blue Incorrect" 	severity ERROR;
 					assert (Hsync = '1') 			report "H-SP V-DA Hsync Incorrect" 	severity ERROR;
 					assert (Vsync = '0') 			report "H-SP V-DA Vsync Incorrect" 	severity ERROR;
+					assert H_Address = "0000000000"	report "H-DA V-DA H_Address incorrect"	severity ERROR;
+					assert V_Address = std_logic_vector(to_unsigned(i, V_Address'Length))	report "H-DA V-DA V_Address incorrect"	severity ERROR;
 				
-				elsif(j< 800) then 	--H BP
+				elsif(j <= 800) then 	--H BP
 					assert (Red = "000") 		report "H-BP V-DA Red Incorrect" 	severity ERROR;
 					assert (Green = "000") 	 	report "H-BP V-DA Green Incorrect" 	severity ERROR;
 					assert (Blue = "00") 		report "H-BP V-DA Blue Incorrect" 	severity ERROR;
 					assert (Hsync = '0') 			report "H-BP V-DA Hsync Incorrect" 	severity ERROR;
 					assert (Vsync = '0') 			report "H-BP V-DA Vsync Incorrect" 	severity ERROR;
+					assert H_Address = "0000000000"	report "H-DA V-DA H_Address incorrect"	severity ERROR;
+					assert V_Address = std_logic_vector(to_unsigned(i, V_Address'Length))	report "H-DA V-DA V_Address incorrect"	severity ERROR;
 				
 				end if;
 				
-			elsif(i < 490) then 		--V FP
-				if(j < 640) then		--H DA
+			elsif(i <= 490) then 		--V FP
+				if(j <= 640) then		--H DA
 					assert (Red = "000") 		report "H-DA V-FP Red Incorrect" 	severity ERROR;
 					assert (Green = "000") 	 	report "H-DA V-FP Green Incorrect" 	severity ERROR;
 					assert (Blue = "00") 		report "H-DA V-FP Blue Incorrect" 	severity ERROR;
 					assert (Hsync = '0') 			report "H-DA V-FP Hsync Incorrect" 	severity ERROR;
 					assert (Vsync = '0') 			report "H-DA V-FP Vsync Incorrect" 	severity ERROR;
+					assert H_Address = "0000000000"	report "H-DA V-DA H_Address incorrect"	severity ERROR;
+					assert V_Address = "0000000000"	report "H-DA V-DA V_Address incorrect"	severity ERROR;
 				
-				elsif(j < 656) then	--H FP
+				elsif(j <= 656) then	--H FP
 					assert (Red = "000") 		report "H-FP V-FP Red Incorrect" 	severity ERROR;
 					assert (Green = "000") 	 	report "H-FP V-FP Green Incorrect" 	severity ERROR;
 					assert (Blue = "00") 		report "H-FP V-FP Blue Incorrect" 	severity ERROR;
 					assert (Hsync = '0') 			report "H-FP V-FP Hsync Incorrect" 	severity ERROR;
 					assert (Vsync = '0') 			report "H-FP V-FP Vsync Incorrect" 	severity ERROR;
+					assert H_Address = "0000000000"	report "H-DA V-DA H_Address incorrect"	severity ERROR;
+					assert V_Address = "0000000000"	report "H-DA V-DA V_Address incorrect"	severity ERROR;
 				
-				elsif(J < 752) then 	--H SP
+				elsif(j <= 752) then 	--H SP
 					assert (Red = "000") 		report "H-SP V-FP Red Incorrect" 	severity ERROR;
 					assert (Green = "000") 	 	report "H-SP V-FP Green Incorrect" 	severity ERROR;
 					assert (Blue = "00") 		report "H-SP V-FP Blue Incorrect" 	severity ERROR;
 					assert (Hsync = '1') 			report "H-SP V-FP Hsync Incorrect" 	severity ERROR;
 					assert (Vsync = '0') 			report "H-SP V-FP Vsync Incorrect" 	severity ERROR;
+					assert H_Address = "0000000000"	report "H-DA V-DA H_Address incorrect"	severity ERROR;
+					assert V_Address = "0000000000"	report "H-DA V-DA V_Address incorrect"	severity ERROR;
 				
-				elsif(j< 800) then 	--H BP
+				elsif(j <= 800) then 	--H BP
 					assert (Red = "000") 		report "H-BP V-FP Red Incorrect" 	severity ERROR;
 					assert (Green = "000") 	 	report "H-BP V-FP Green Incorrect" 	severity ERROR;
 					assert (Blue = "00") 		report "H-BP V-FP Blue Incorrect" 	severity ERROR;
 					assert (Hsync = '0') 			report "H-BP V-FP Hsync Incorrect" 	severity ERROR;
 					assert (Vsync = '0') 			report "H-BP V-FP Vsync Incorrect" 	severity ERROR;
+					assert H_Address = "0000000000"	report "H-DA V-DA H_Address incorrect"	severity ERROR;
+					assert V_Address = "0000000000"	report "H-DA V-DA V_Address incorrect"	severity ERROR;
 				
 				end if;
 				
-			elsif(i < 492) then 		--V SP
-				if(j < 640) then		--H DA
+			elsif(i <= 492) then 		--V SP
+				if(j <= 640) then		--H DA
 					assert (Red = "000") 		report "H-DA V-SP Red Incorrect" 	severity ERROR;
 					assert (Green = "000") 	 	report "H-DA V-SP Green Incorrect" 	severity ERROR;
 					assert (Blue = "00") 		report "H-DA V-SP Blue Incorrect" 	severity ERROR;
 					assert (Hsync = '0') 			report "H-DA V-SP Hsync Incorrect" 	severity ERROR;
 					assert (Vsync = '1') 			report "H-DA V-SP Vsync Incorrect" 	severity ERROR;
+					assert H_Address = "0000000000"	report "H-DA V-DA H_Address incorrect"	severity ERROR;
+					assert V_Address = "0000000000"	report "H-DA V-DA V_Address incorrect"	severity ERROR;
 				
-				elsif(j < 656) then	--H FP
+				elsif(j <= 656) then	--H FP
 					assert (Red = "000") 		report "H-FP V-SP Red Incorrect" 	severity ERROR;
 					assert (Green = "000") 	 	report "H-FP V-SP Green Incorrect" 	severity ERROR;
 					assert (Blue = "00") 		report "H-FP V-SP Blue Incorrect" 	severity ERROR;
 					assert (Hsync = '0')			report "H-FP V-SP Hsync Incorrect" 	severity ERROR;
 					assert (Vsync = '1') 			report "H-FP V-SP Vsync Incorrect" 	severity ERROR;
+					assert H_Address = "0000000000"	report "H-DA V-DA H_Address incorrect"	severity ERROR;
+					assert V_Address = "0000000000"	report "H-DA V-DA V_Address incorrect"	severity ERROR;
 				
-				elsif(J < 752) then 	--H SP
+				elsif(j <= 752) then 	--H SP
 					assert (Red = "000") 		report "H-sp V-SP Red Incorrect" 	severity ERROR;
 					assert (Green = "000") 	 	report "H-sp V-SP Green Incorrect" 	severity ERROR;
 					assert (Blue = "00") 		report "H-sp V-SP Blue Incorrect" 	severity ERROR;
 					assert (Hsync = '1') 			report "H-sp V-SP Hsync Incorrect" 	severity ERROR;
 					assert (Vsync = '1') 			report "H-sp V-SP Vsync Incorrect" 	severity ERROR;
+					assert H_Address = "0000000000"	report "H-DA V-DA H_Address incorrect"	severity ERROR;
+					assert V_Address = "0000000000"	report "H-DA V-DA V_Address incorrect"	severity ERROR;
 				
-				elsif(j< 800) then 	--H BP
+				elsif(j <= 800) then 	--H BP
 					assert (Red = "000") 		report "H-bp V-SP Red Incorrect" 	severity ERROR;
 					assert (Green = "000") 	 	report "H-bp V-SP Green Incorrect" 	severity ERROR;
 					assert (Blue = "00") 		report "H-bp V-SP Blue Incorrect" 	severity ERROR;
 					assert (Hsync = '0') 			report "H-bp V-SP Hsync Incorrect" 	severity ERROR;
 					assert (Vsync = '1') 			report "H-bp V-SP Vsync Incorrect" 	severity ERROR;
+					assert H_Address = "0000000000"	report "H-DA V-DA H_Address incorrect"	severity ERROR;
+					assert V_Address = "0000000000"	report "H-DA V-DA V_Address incorrect"	severity ERROR;
 				
 				end if;
 				
-			elsif(i < 525) then 		--V BP
-				if(j < 640) then		--H DA
+			elsif(i <= 525) then 		--V BP
+				if(j <= 640) then		--H DA
 					assert (Red = "000") 		report "H-DA V-BP Red Incorrect" 	severity ERROR;
 					assert (Green = "000") 	 	report "H-DA V-BP Green Incorrect" 	severity ERROR;
 					assert (Blue = "00") 		report "H-DA V-BP Blue Incorrect" 	severity ERROR;
 					assert (Hsync = '0') 			report "H-DA V-BP Hsync Incorrect" 	severity ERROR;
 					assert (Vsync = '0') 			report "H-DA V-BP Vsync Incorrect" 	severity ERROR;
+					assert H_Address = "0000000000"	report "H-DA V-DA H_Address incorrect"	severity ERROR;
+					assert V_Address = "0000000000"	report "H-DA V-DA V_Address incorrect"	severity ERROR;
 				
-				elsif(j < 656) then	--H FP
+				elsif(j <= 656) then	--H FP
 					assert (Red = "000") 		report "H-FP V-BP Red Incorrect" 	severity ERROR;
 					assert (Green = "000") 	 	report "H-FP V-BP Green Incorrect" 	severity ERROR;
 					assert (Blue = "00") 		report "H-FP V-BP Blue Incorrect" 	severity ERROR;
 					assert (Hsync = '0') 			report "H-FP V-BP Hsync Incorrect" 	severity ERROR;
 					assert (Vsync = '0') 			report "H-FP V-BP Vsync Incorrect" 	severity ERROR;
+					assert H_Address = "0000000000"	report "H-DA V-DA H_Address incorrect"	severity ERROR;
+					assert V_Address = "0000000000"	report "H-DA V-DA V_Address incorrect"	severity ERROR;
 				
-				elsif(J < 752) then 	--H SP
+				elsif(j <= 752) then 	--H SP
 					assert (Red = "000") 		report "H-SP V-BP Red Incorrect" 	severity ERROR;
 					assert (Green = "000") 	 	report "H-SP V-BP Green Incorrect" 	severity ERROR;
 					assert (Blue = "00") 		report "H-SP V-BP Blue Incorrect" 	severity ERROR;
 					assert (Hsync = '1') 			report "H-SP V-BP Hsync Incorrect" 	severity ERROR;
 					assert (Vsync = '0') 			report "H-SP V-BP Vsync Incorrect" 	severity ERROR;
+					assert H_Address = "0000000000"	report "H-DA V-DA H_Address incorrect"	severity ERROR;
+					assert V_Address = "0000000000"	report "H-DA V-DA V_Address incorrect"	severity ERROR;
 				
-				elsif(j< 800) then 	--H BP
+				elsif(j <= 800) then 	--H BP
 					assert (Red = "000") 		report "H-BP V-BP Red Incorrect" 	severity ERROR;
 					assert (Green = "000") 	 	report "H-BP V-BP Green Incorrect" 	severity ERROR;
 					assert (Blue = "00") 		report "H-BP V-BP Blue Incorrect" 	severity ERROR;
 					assert (Hsync = '0') 			report "H-BP V-BP Hsync Incorrect" 	severity ERROR;
 					assert (Vsync = '0') 			report "H-BP V-BP Vsync Incorrect" 	severity ERROR;
+					assert H_Address = "0000000000"	report "H-DA V-DA H_Address incorrect"	severity ERROR;
+					assert V_Address = "0000000000"	report "H-DA V-DA V_Address incorrect"	severity ERROR;
 				
 				end if;
 			end if;

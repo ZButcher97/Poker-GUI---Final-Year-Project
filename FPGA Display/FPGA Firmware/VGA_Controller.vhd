@@ -32,10 +32,7 @@ architecture VGA_Controller_V1 of VGA_Controller is
 	Signal 	VState 		: 	VStates := Display;
 	
 	--Signals
-	Signal 	HCount				: 	integer 	:= 0;
-	Signal 	vCount				: 	integer 	:= 0;
-	Signal 	HAddress				:	integer := 0;
-	Signal 	VAddress				:	integer := 0;
+	
 	
 	--Constants
 	constant HdisplayConst		: 	integer 	:= 640;
@@ -51,40 +48,46 @@ architecture VGA_Controller_V1 of VGA_Controller is
 begin
 	
 PIXEL_Horizontal: Process(CLK)
+	variable 	HCount				: 	integer 	:= 1;
+	variable 	VCount				: 	integer 	:= 1;
+	variable 	HAddress				:	integer := 1;
+	variable 	VAddress				:	integer := 1;
+	
 	BEGIN
 	if(rising_edge(CLK)) then 
-		HCount <= HCount + 1;
 		
-		if(HCount < HdisplayConst-1) then 
+		if(HCount = 0) then
+			VCount := VCount + 1;
+			VAddress := VCount;
+		elsif(HCount < HdisplayConst) then 
 			HState <= Display;
-		elsif(HCount < HfrontPorchConst-1) then 
+		elsif(HCount < HfrontPorchConst) then 
 			HState <= FrontPorch;
-		elsif(HCount < HSyncConst-1) then 
+			HAddress := 0;
+		elsif(HCount < HSyncConst) then 
 			HState <= H_sync;
-		elsif(HCount < HbackPorchConst-1) then 
+		elsif(HCount < HbackPorchConst) then 
 			HState <= BackPorch;
-		else 
+		elsif(HCount = 800) then
 			HState <= Display;
-			HCount <= 0;
-			VCount <= VCount + 1;
-			HAddress <= 0;
-			VAddress <= VAddress + 1;
+			HCount := 0;
 		end if;
 		
-		if(VCount < VdisplayConst-1) then 
+		if(VCount <= VdisplayConst) then 
 			VState <= Display;
-		elsif(VCount < VfrontPorchConst-1) then 
+		elsif(VCount <= VfrontPorchConst) then 
 			VState <= FrontPorch;
-		elsif(VCount < VSyncConst-1) then 
+			VAddress := 0;
+		elsif(VCount <= VSyncConst) then 
 			VState <= V_sync;
-		elsif(VCount < VbackPorchConst-1) then 
+		elsif(VCount <= VbackPorchConst) then 
 			VState <= BackPorch;
 		else 
 			VState <= Display;
-			VCount <= 0;
-			VAddress <= 0;
+			VCount := 0;
 		end if;
-			
+		
+		
 		case VState is 
 			when Display => --V Display
 				case HState is 
@@ -94,7 +97,7 @@ PIXEL_Horizontal: Process(CLK)
 						Blue 	<= Blue_Data;
 						Hsync <= '0';
 						Vsync <= '0';
-						HAddress <= HAddress + 1;
+						HAddress := HCount;
 
 					when FrontPorch => --H Front Porch
 						Red 	<= (others => '0');
@@ -102,6 +105,7 @@ PIXEL_Horizontal: Process(CLK)
 						Blue 	<= (others => '0');
 						Hsync <= '0';
 						Vsync <= '0';
+						HAddress := 0;
 						
 					when H_sync => --H sync
 						Red 	<= (others => '0');
@@ -173,6 +177,7 @@ PIXEL_Horizontal: Process(CLK)
 						
 				end case;
 		end case;
+		HCount := HCount + 1;
 		H_Address <= std_logic_vector(to_unsigned(HAddress, H_Address'length));
 		V_Address <= std_logic_vector(to_unsigned(VAddress, V_Address'length));
 		
