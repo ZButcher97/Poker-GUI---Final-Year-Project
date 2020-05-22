@@ -2,40 +2,40 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'PIXEL_CLOCK'
-Slack : -3.639
-TNS   : -223.971
+Type  : Slow 1200mV 85C Model Setup 'CLK'
+Slack : -3.835
+TNS   : -291.245
 
-Type  : Slow 1200mV 85C Model Hold 'PIXEL_CLOCK'
-Slack : 0.470
+Type  : Slow 1200mV 85C Model Hold 'CLK'
+Slack : 0.343
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PIXEL_CLOCK'
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLK'
 Slack : -3.000
-TNS   : -76.000
+TNS   : -111.000
 
-Type  : Slow 1200mV 0C Model Setup 'PIXEL_CLOCK'
-Slack : -3.199
-TNS   : -196.474
+Type  : Slow 1200mV 0C Model Setup 'CLK'
+Slack : -3.386
+TNS   : -253.060
 
-Type  : Slow 1200mV 0C Model Hold 'PIXEL_CLOCK'
-Slack : 0.414
+Type  : Slow 1200mV 0C Model Hold 'CLK'
+Slack : 0.298
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PIXEL_CLOCK'
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLK'
 Slack : -3.000
-TNS   : -76.000
+TNS   : -111.000
 
-Type  : Fast 1200mV 0C Model Setup 'PIXEL_CLOCK'
-Slack : -1.528
-TNS   : -91.922
+Type  : Fast 1200mV 0C Model Setup 'CLK'
+Slack : -1.744
+TNS   : -122.182
 
-Type  : Fast 1200mV 0C Model Hold 'PIXEL_CLOCK'
-Slack : 0.256
+Type  : Fast 1200mV 0C Model Hold 'CLK'
+Slack : 0.178
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PIXEL_CLOCK'
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLK'
 Slack : -3.000
-TNS   : -80.719
+TNS   : -118.425
 
 ------------------------------------------------------------

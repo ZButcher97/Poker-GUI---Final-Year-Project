@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FinalYearProject
-Fri May 22 16:29:00 2020
+Fri May 22 18:39:16 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -13,8 +13,8 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |FinalYearProject|VGA_Controller:inst|VState
-  9. State Machine - |FinalYearProject|VGA_Controller:inst|HState
+  8. State Machine - |VGA_Controller|VState
+  9. State Machine - |VGA_Controller|HState
  10. Registers Removed During Synthesis
  11. General Register Statistics
  12. Multiplexer Restructuring Statistics (Restructuring Performed)
@@ -46,16 +46,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri May 22 16:29:00 2020       ;
+; Analysis & Synthesis Status        ; Successful - Fri May 22 18:39:16 2020       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; FinalYearProject                            ;
-; Top-level Entity Name              ; FinalYearProject                            ;
+; Top-level Entity Name              ; VGA_Controller                              ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 121                                         ;
-;     Total combinational functions  ; 117                                         ;
-;     Dedicated logic registers      ; 73                                          ;
-; Total registers                    ; 73                                          ;
-; Total pins                         ; 6                                           ;
+; Total logic elements               ; 191                                         ;
+;     Total combinational functions  ; 169                                         ;
+;     Dedicated logic registers      ; 108                                         ;
+; Total registers                    ; 108                                         ;
+; Total pins                         ; 39                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -69,7 +69,7 @@ refer to the applicable agreement for further details.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE22F17C6       ;                    ;
-; Top-level entity name                                            ; FinalYearProject   ; FinalYearProject   ;
+; Top-level entity name                                            ; VGA_Controller     ; FinalYearProject   ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -166,62 +166,60 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                        ;
-+----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                              ; Library ;
-+----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------+---------+
-; FinalYearProject.bdf             ; yes             ; User Block Diagram/Schematic File  ; C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/FinalYearProject.bdf ;         ;
-; VGA_Controller.vhd               ; yes             ; User VHDL File                     ; C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/VGA_Controller.vhd   ;         ;
-+----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                            ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------+---------+
+; VGA_Controller.vhd               ; yes             ; User VHDL File  ; C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/VGA_Controller.vhd ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                     ;
-+---------------------------------------------+-------------------+
-; Resource                                    ; Usage             ;
-+---------------------------------------------+-------------------+
-; Estimated Total logic elements              ; 121               ;
-;                                             ;                   ;
-; Total combinational functions               ; 117               ;
-; Logic element usage by number of LUT inputs ;                   ;
-;     -- 4 input functions                    ; 37                ;
-;     -- 3 input functions                    ; 10                ;
-;     -- <=2 input functions                  ; 70                ;
-;                                             ;                   ;
-; Logic elements by mode                      ;                   ;
-;     -- normal mode                          ; 55                ;
-;     -- arithmetic mode                      ; 62                ;
-;                                             ;                   ;
-; Total registers                             ; 73                ;
-;     -- Dedicated logic registers            ; 73                ;
-;     -- I/O registers                        ; 0                 ;
-;                                             ;                   ;
-; I/O pins                                    ; 6                 ;
-;                                             ;                   ;
-; Embedded Multiplier 9-bit elements          ; 0                 ;
-;                                             ;                   ;
-; Maximum fan-out node                        ; PIXEL_CLOCK~input ;
-; Maximum fan-out                             ; 73                ;
-; Total fan-out                               ; 537               ;
-; Average fan-out                             ; 2.66              ;
-+---------------------------------------------+-------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 191       ;
+;                                             ;           ;
+; Total combinational functions               ; 169       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 70        ;
+;     -- 3 input functions                    ; 18        ;
+;     -- <=2 input functions                  ; 81        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 98        ;
+;     -- arithmetic mode                      ; 71        ;
+;                                             ;           ;
+; Total registers                             ; 108       ;
+;     -- Dedicated logic registers            ; 108       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 39        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; CLK~input ;
+; Maximum fan-out                             ; 108       ;
+; Total fan-out                               ; 835       ;
+; Average fan-out                             ; 2.35      ;
++---------------------------------------------+-----------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                             ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+------------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                   ; Entity Name      ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+------------------+--------------+
-; |FinalYearProject          ; 117 (0)             ; 73 (0)                    ; 0           ; 0            ; 0       ; 0         ; 6    ; 0            ; |FinalYearProject                     ; FinalYearProject ; work         ;
-;    |VGA_Controller:inst|   ; 117 (117)           ; 73 (73)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FinalYearProject|VGA_Controller:inst ; VGA_Controller   ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+----------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name    ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+----------------+--------------+
+; |VGA_Controller            ; 169 (169)           ; 108 (108)                 ; 0           ; 0            ; 0       ; 0         ; 39   ; 0            ; |VGA_Controller     ; VGA_Controller ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
 +-------------------------------------------------------------------------------------------+
-; State Machine - |FinalYearProject|VGA_Controller:inst|VState                              ;
+; State Machine - |VGA_Controller|VState                                                    ;
 +-------------------+------------------+---------------+-------------------+----------------+
 ; Name              ; VState.BackPorch ; VState.V_sync ; VState.FrontPorch ; VState.Display ;
 +-------------------+------------------+---------------+-------------------+----------------+
@@ -234,7 +232,7 @@ Encoding Type:  One-Hot
 
 Encoding Type:  One-Hot
 +-------------------------------------------------------------------------------------------+
-; State Machine - |FinalYearProject|VGA_Controller:inst|HState                              ;
+; State Machine - |VGA_Controller|HState                                                    ;
 +-------------------+------------------+---------------+-------------------+----------------+
 ; Name              ; HState.BackPorch ; HState.H_sync ; HState.FrontPorch ; HState.Display ;
 +-------------------+------------------+---------------+-------------------+----------------+
@@ -245,17 +243,50 @@ Encoding Type:  One-Hot
 +-------------------+------------------+---------------+-------------------+----------------+
 
 
-+------------------------------------------------------------+
-; Registers Removed During Synthesis                         ;
-+---------------------------------------+--------------------+
-; Register name                         ; Reason for Removal ;
-+---------------------------------------+--------------------+
-; VGA_Controller:inst|VState.FrontPorch ; Lost fanout        ;
-; VGA_Controller:inst|VState.BackPorch  ; Lost fanout        ;
-; VGA_Controller:inst|HState.FrontPorch ; Lost fanout        ;
-; VGA_Controller:inst|HState.BackPorch  ; Lost fanout        ;
-; Total Number of Removed Registers = 4 ;                    ;
-+---------------------------------------+--------------------+
++-------------------------------------------------------------------+
+; Registers Removed During Synthesis                                ;
++----------------------------------------+--------------------------+
+; Register name                          ; Reason for Removal       ;
++----------------------------------------+--------------------------+
+; vCount[31]                             ; Merged with VAddress[31] ;
+; vCount[30]                             ; Merged with VAddress[30] ;
+; vCount[29]                             ; Merged with VAddress[29] ;
+; vCount[28]                             ; Merged with VAddress[28] ;
+; vCount[27]                             ; Merged with VAddress[27] ;
+; vCount[26]                             ; Merged with VAddress[26] ;
+; vCount[25]                             ; Merged with VAddress[25] ;
+; vCount[24]                             ; Merged with VAddress[24] ;
+; vCount[23]                             ; Merged with VAddress[23] ;
+; vCount[22]                             ; Merged with VAddress[22] ;
+; vCount[21]                             ; Merged with VAddress[21] ;
+; vCount[20]                             ; Merged with VAddress[20] ;
+; vCount[19]                             ; Merged with VAddress[19] ;
+; vCount[18]                             ; Merged with VAddress[18] ;
+; vCount[17]                             ; Merged with VAddress[17] ;
+; vCount[16]                             ; Merged with VAddress[16] ;
+; vCount[15]                             ; Merged with VAddress[15] ;
+; vCount[14]                             ; Merged with VAddress[14] ;
+; vCount[13]                             ; Merged with VAddress[13] ;
+; vCount[12]                             ; Merged with VAddress[12] ;
+; vCount[11]                             ; Merged with VAddress[11] ;
+; vCount[10]                             ; Merged with VAddress[10] ;
+; vCount[9]                              ; Merged with VAddress[9]  ;
+; vCount[8]                              ; Merged with VAddress[8]  ;
+; vCount[7]                              ; Merged with VAddress[7]  ;
+; vCount[6]                              ; Merged with VAddress[6]  ;
+; vCount[5]                              ; Merged with VAddress[5]  ;
+; vCount[4]                              ; Merged with VAddress[4]  ;
+; vCount[3]                              ; Merged with VAddress[3]  ;
+; vCount[2]                              ; Merged with VAddress[2]  ;
+; vCount[1]                              ; Merged with VAddress[1]  ;
+; vCount[0]                              ; Merged with VAddress[0]  ;
+; VState.FrontPorch                      ; Lost fanout              ;
+; VState.BackPorch                       ; Lost fanout              ;
+; HState.FrontPorch                      ; Lost fanout              ;
+; HState.BackPorch                       ; Lost fanout              ;
+; HAddress[10..31]                       ; Lost fanout              ;
+; Total Number of Removed Registers = 58 ;                          ;
++----------------------------------------+--------------------------+
 
 
 +------------------------------------------------------+
@@ -263,24 +294,27 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 73    ;
-; Number of registers using Synchronous Clear  ; 64    ;
+; Total registers                              ; 108   ;
+; Number of registers using Synchronous Clear  ; 42    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 15    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |FinalYearProject|VGA_Controller:inst|VState ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |FinalYearProject|VGA_Controller:inst|HState ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |VGA_Controller|Red[0]~reg0  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |VGA_Controller|HAddress[26] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |VGA_Controller|VAddress[13] ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |VGA_Controller|VState       ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |VGA_Controller|HState       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
 
 
 +-----------------------------------------------------+
@@ -288,21 +322,23 @@ Encoding Type:  One-Hot
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 6                           ;
-; cycloneiii_ff         ; 73                          ;
-;     SCLR              ; 64                          ;
-;     plain             ; 9                           ;
-; cycloneiii_lcell_comb ; 117                         ;
-;     arith             ; 62                          ;
-;         2 data inputs ; 62                          ;
-;     normal            ; 55                          ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 6                           ;
-;         3 data inputs ; 10                          ;
-;         4 data inputs ; 37                          ;
+; boundary_port         ; 39                          ;
+; cycloneiii_ff         ; 108                         ;
+;     ENA               ; 5                           ;
+;     ENA SCLR          ; 10                          ;
+;     SCLR              ; 32                          ;
+;     plain             ; 61                          ;
+; cycloneiii_lcell_comb ; 169                         ;
+;     arith             ; 71                          ;
+;         2 data inputs ; 71                          ;
+;     normal            ; 98                          ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 7                           ;
+;         3 data inputs ; 18                          ;
+;         4 data inputs ; 70                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 3.89                        ;
+; Max LUT depth         ; 7.00                        ;
+; Average LUT depth     ; 4.20                        ;
 +-----------------------+-----------------------------+
 
 
@@ -321,29 +357,28 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri May 22 16:28:43 2020
+    Info: Processing started: Fri May 22 18:38:53 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FinalYearProject -c FinalYearProject
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file finalyearproject.bdf
     Info (12023): Found entity 1: FinalYearProject
 Info (12021): Found 2 design units, including 1 entities, in source file vga_controller.vhd
-    Info (12022): Found design unit 1: VGA_Controller-VGA_Controller_V1 File: C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/VGA_Controller.vhd Line: 22
+    Info (12022): Found design unit 1: VGA_Controller-VGA_Controller_V1 File: C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/VGA_Controller.vhd Line: 27
     Info (12023): Found entity 1: VGA_Controller File: C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/VGA_Controller.vhd Line: 5
-Info (12127): Elaborating entity "FinalYearProject" for the top level hierarchy
-Info (12128): Elaborating entity "VGA_Controller" for hierarchy "VGA_Controller:inst"
+Info (12127): Elaborating entity "VGA_Controller" for the top level hierarchy
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (17049): 26 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 128 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 1 input pins
-    Info (21059): Implemented 5 output pins
-    Info (21061): Implemented 122 logic cells
+Info (21057): Implemented 230 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 9 input pins
+    Info (21059): Implemented 30 output pins
+    Info (21061): Implemented 191 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4792 megabytes
-    Info: Processing ended: Fri May 22 16:29:01 2020
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:31
+    Info: Peak virtual memory: 4793 megabytes
+    Info: Processing ended: Fri May 22 18:39:16 2020
+    Info: Elapsed time: 00:00:23
+    Info: Total CPU time (on all processors): 00:00:48
 
 

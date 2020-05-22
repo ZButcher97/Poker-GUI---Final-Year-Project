@@ -4,27 +4,159 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "VGA_RED",
+					"name" : "Red[0]",
 					"strict" : false
 				},
 				{
-					"name" : "VGA_GREEN",
+					"name" : "Red[1]",
 					"strict" : false
 				},
 				{
-					"name" : "VGA_BLUE",
+					"name" : "Red[2]",
 					"strict" : false
 				},
 				{
-					"name" : "VGA_HSYNC",
+					"name" : "Green[0]",
 					"strict" : false
 				},
 				{
-					"name" : "VGA_VSYNC",
+					"name" : "Green[1]",
 					"strict" : false
 				},
 				{
-					"name" : "PIXEL_CLOCK",
+					"name" : "Green[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Blue[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Blue[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Hsync",
+					"strict" : false
+				},
+				{
+					"name" : "Vsync",
+					"strict" : false
+				},
+				{
+					"name" : "H_Address[0]",
+					"strict" : false
+				},
+				{
+					"name" : "H_Address[1]",
+					"strict" : false
+				},
+				{
+					"name" : "H_Address[2]",
+					"strict" : false
+				},
+				{
+					"name" : "H_Address[3]",
+					"strict" : false
+				},
+				{
+					"name" : "H_Address[4]",
+					"strict" : false
+				},
+				{
+					"name" : "H_Address[5]",
+					"strict" : false
+				},
+				{
+					"name" : "H_Address[6]",
+					"strict" : false
+				},
+				{
+					"name" : "H_Address[7]",
+					"strict" : false
+				},
+				{
+					"name" : "H_Address[8]",
+					"strict" : false
+				},
+				{
+					"name" : "H_Address[9]",
+					"strict" : false
+				},
+				{
+					"name" : "V_Address[0]",
+					"strict" : false
+				},
+				{
+					"name" : "V_Address[1]",
+					"strict" : false
+				},
+				{
+					"name" : "V_Address[2]",
+					"strict" : false
+				},
+				{
+					"name" : "V_Address[3]",
+					"strict" : false
+				},
+				{
+					"name" : "V_Address[4]",
+					"strict" : false
+				},
+				{
+					"name" : "V_Address[5]",
+					"strict" : false
+				},
+				{
+					"name" : "V_Address[6]",
+					"strict" : false
+				},
+				{
+					"name" : "V_Address[7]",
+					"strict" : false
+				},
+				{
+					"name" : "V_Address[8]",
+					"strict" : false
+				},
+				{
+					"name" : "V_Address[9]",
+					"strict" : false
+				},
+				{
+					"name" : "Red_Data[0]",
+					"strict" : false
+				},
+				{
+					"name" : "CLK",
+					"strict" : false
+				},
+				{
+					"name" : "Red_Data[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Red_Data[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Green_Data[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Green_Data[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Green_Data[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Blue_Data[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Blue_Data[1]",
 					"strict" : false
 				}
 			]
