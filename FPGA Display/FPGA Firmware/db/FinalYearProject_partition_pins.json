@@ -1,0 +1,33 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "VGA_RED",
+					"strict" : false
+				},
+				{
+					"name" : "VGA_GREEN",
+					"strict" : false
+				},
+				{
+					"name" : "VGA_BLUE",
+					"strict" : false
+				},
+				{
+					"name" : "VGA_HSYNC",
+					"strict" : false
+				},
+				{
+					"name" : "VGA_VSYNC",
+					"strict" : false
+				},
+				{
+					"name" : "PIXEL_CLOCK",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

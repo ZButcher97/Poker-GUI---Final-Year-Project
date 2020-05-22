@@ -1,0 +1,14 @@
+
+State Machine - |FinalYearProject|VGA_Controller:inst|VState
+Name VState.BackPorch VState.V_sync VState.FrontPorch VState.Display 
+VState.Display 0 0 0 0 
+VState.FrontPorch 0 0 1 1 
+VState.V_sync 0 1 0 1 
+VState.BackPorch 1 0 0 1 
+
+State Machine - |FinalYearProject|VGA_Controller:inst|HState
+Name HState.BackPorch HState.H_sync HState.FrontPorch HState.Display 
+HState.Display 0 0 0 0 
+HState.FrontPorch 0 0 1 1 
+HState.H_sync 0 1 0 1 
+HState.BackPorch 1 0 0 1 
