@@ -1,5 +1,5 @@
 Flow report for FinalYearProject
-Fri May 22 21:25:34 2020
+Sat May 23 11:26:24 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,18 +40,18 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri May 22 21:25:34 2020       ;
+; Flow Status                        ; Successful - Sat May 23 11:26:24 2020       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; FinalYearProject                            ;
-; Top-level Entity Name              ; VGA_Controller                              ;
+; Top-level Entity Name              ; Live_Buffer                                 ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE22F17C6                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 207 / 22,320 ( < 1 % )                      ;
-;     Total combinational functions  ; 187 / 22,320 ( < 1 % )                      ;
-;     Dedicated logic registers      ; 119 / 22,320 ( < 1 % )                      ;
-; Total registers                    ; 119                                         ;
-; Total pins                         ; 39 / 154 ( 25 % )                           ;
+; Total logic elements               ; 4,176 / 22,320 ( 19 % )                     ;
+;     Total combinational functions  ; 4,176 / 22,320 ( 19 % )                     ;
+;     Dedicated logic registers      ; 0 / 22,320 ( 0 % )                          ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 38 / 154 ( 25 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 608,256 ( 0 % )                         ;
 ; Embedded Multiplier 9-bit elements ; 0 / 132 ( 0 % )                             ;
@@ -64,38 +64,38 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/22/2020 21:24:38 ;
+; Start date & time ; 05/23/2020 11:25:31 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; FinalYearProject    ;
 +-------------------+---------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                           ;
-+--------------------------------------+----------------------------------------+------------------+----------------+------------------------+
-; Assignment Name                      ; Value                                  ; Default Value    ; Entity Name    ; Section Id             ;
-+--------------------------------------+----------------------------------------+------------------+----------------+------------------------+
-; COMPILER_SIGNATURE_ID                ; 53350635839432.159017907812660         ; --               ; --             ; --                     ;
-; EDA_DESIGN_INSTANCE_NAME             ; i1                                     ; --               ; --             ; VGA_Controller_vhd_tst ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; VGA_Controller_vhd_tst                 ; --               ; --             ; eda_simulation         ;
-; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                   ; --               ; --             ; eda_simulation         ;
-; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (VHDL)                 ; <None>           ; --             ; --                     ;
-; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --               ; --             ; eda_simulation         ;
-; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/VGA_Controller.vht ; --               ; --             ; VGA_Controller_vhd_tst ;
-; EDA_TEST_BENCH_MODULE_NAME           ; VGA_Controller_vhd_tst                 ; --               ; --             ; VGA_Controller_vhd_tst ;
-; EDA_TEST_BENCH_NAME                  ; VGA_Controller_vhd_tst                 ; --               ; --             ; eda_simulation         ;
-; EDA_TIME_SCALE                       ; 1 ps                                   ; --               ; --             ; eda_simulation         ;
-; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --               ; --             ; --                     ;
-; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --               ; --             ; --                     ;
-; NOMINAL_CORE_SUPPLY_VOLTAGE          ; 1.2V                                   ; --               ; --             ; --                     ;
-; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --               ; VGA_Controller ; Top                    ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --               ; VGA_Controller ; Top                    ;
-; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --               ; VGA_Controller ; Top                    ;
-; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --               ; --             ; --                     ;
-; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --               ; --             ; --                     ;
-; PROJECT_OUTPUT_DIRECTORY             ; output_files                           ; --               ; --             ; --                     ;
-; TOP_LEVEL_ENTITY                     ; VGA_Controller                         ; FinalYearProject ; --             ; --                     ;
-+--------------------------------------+----------------------------------------+------------------+----------------+------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                        ;
++--------------------------------------+----------------------------------------+------------------+-------------+------------------------+
+; Assignment Name                      ; Value                                  ; Default Value    ; Entity Name ; Section Id             ;
++--------------------------------------+----------------------------------------+------------------+-------------+------------------------+
+; COMPILER_SIGNATURE_ID                ; 38917505025.159022953103996            ; --               ; --          ; --                     ;
+; EDA_DESIGN_INSTANCE_NAME             ; i1                                     ; --               ; --          ; VGA_Controller_vhd_tst ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; VGA_Controller_vhd_tst                 ; --               ; --          ; eda_simulation         ;
+; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                   ; --               ; --          ; eda_simulation         ;
+; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (VHDL)                 ; <None>           ; --          ; --                     ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --               ; --          ; eda_simulation         ;
+; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/VGA_Controller.vht ; --               ; --          ; VGA_Controller_vhd_tst ;
+; EDA_TEST_BENCH_MODULE_NAME           ; VGA_Controller_vhd_tst                 ; --               ; --          ; VGA_Controller_vhd_tst ;
+; EDA_TEST_BENCH_NAME                  ; VGA_Controller_vhd_tst                 ; --               ; --          ; eda_simulation         ;
+; EDA_TIME_SCALE                       ; 1 ps                                   ; --               ; --          ; eda_simulation         ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --               ; --          ; --                     ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --               ; --          ; --                     ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE          ; 1.2V                                   ; --               ; --          ; --                     ;
+; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --               ; Live_Buffer ; Top                    ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --               ; Live_Buffer ; Top                    ;
+; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --               ; Live_Buffer ; Top                    ;
+; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --               ; --          ; --                     ;
+; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --               ; --          ; --                     ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                           ; --               ; --          ; --                     ;
+; TOP_LEVEL_ENTITY                     ; Live_Buffer                            ; FinalYearProject ; --          ; --                     ;
++--------------------------------------+----------------------------------------+------------------+-------------+------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -103,12 +103,12 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:24     ; 1.0                     ; 4793 MB             ; 00:00:46                           ;
-; Fitter               ; 00:00:16     ; 1.0                     ; 5525 MB             ; 00:00:19                           ;
-; Assembler            ; 00:00:03     ; 1.0                     ; 4675 MB             ; 00:00:02                           ;
-; Timing Analyzer      ; 00:00:05     ; 1.0                     ; 4792 MB             ; 00:00:04                           ;
-; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4644 MB             ; 00:00:02                           ;
-; Total                ; 00:00:51     ; --                      ; --                  ; 00:01:13                           ;
+; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 4805 MB             ; 00:00:36                           ;
+; Fitter               ; 00:00:17     ; 1.0                     ; 5284 MB             ; 00:00:22                           ;
+; Assembler            ; 00:00:01     ; 1.0                     ; 4688 MB             ; 00:00:02                           ;
+; Timing Analyzer      ; 00:00:03     ; 1.1                     ; 4784 MB             ; 00:00:04                           ;
+; EDA Netlist Writer   ; 00:00:07     ; 1.0                     ; 4673 MB             ; 00:00:04                           ;
+; Total                ; 00:00:46     ; --                      ; --                  ; 00:01:08                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -117,11 +117,11 @@ refer to the applicable agreement for further details.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; DESKTOP-HTTT5M3  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; DESKTOP-HTTT5M3  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; DESKTOP-HTTT5M3  ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; DESKTOP-HTTT5M3  ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; DESKTOP-HTTT5M3  ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; DESKTOP-SDGU70M  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; DESKTOP-SDGU70M  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; DESKTOP-SDGU70M  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-SDGU70M  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-SDGU70M  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 

@@ -48,29 +48,31 @@ architecture VGA_Controller_V1 of VGA_Controller is
 begin
 	
 PIXEL_Horizontal: Process(CLK)
-	variable 	HCount				: 	integer 	:= 1;
-	variable 	VCount				: 	integer 	:= 1;
+	variable 	HCount					: 	integer := 1;
+	variable 	VCount					: 	integer := 1;
 	variable 	HAddress				:	integer := 1;
 	variable 	VAddress				:	integer := 1;
 	
 	BEGIN
 	if(rising_edge(CLK)) then 
-		
-		if(HCount = 0) then
-			VCount := VCount + 1;
-			VAddress := VCount;
-		elsif(HCount < HdisplayConst) then 
+
+		if(HCount < HdisplayConst) then 
 			HState <= Display;
 		elsif(HCount < HfrontPorchConst) then 
 			HState <= FrontPorch;
 			HAddress := 0;
 		elsif(HCount < HSyncConst) then 
 			HState <= H_sync;
+			HAddress := 0;
 		elsif(HCount < HbackPorchConst) then 
 			HState <= BackPorch;
+			HAddress := 0;
 		elsif(HCount = 800) then
 			HState <= Display;
-			HCount := 0;
+		elsif(HCount = 801) then 
+			HCount := 1;
+			VCount := VCount + 1;
+			VAddress := VCount;
 		end if;
 		
 		if(VCount <= VdisplayConst) then 
@@ -78,13 +80,19 @@ PIXEL_Horizontal: Process(CLK)
 		elsif(VCount <= VfrontPorchConst) then 
 			VState <= FrontPorch;
 			VAddress := 0;
+			HAddress := 0;
 		elsif(VCount <= VSyncConst) then 
 			VState <= V_sync;
+			VAddress := 0;
+			HAddress := 0;
 		elsif(VCount <= VbackPorchConst) then 
 			VState <= BackPorch;
+			VAddress := 0;
+			HAddress := 0;
 		else 
 			VState <= Display;
 			VCount := 0;
+			VAddress := 0;
 		end if;
 		
 		
