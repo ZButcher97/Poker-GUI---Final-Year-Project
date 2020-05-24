@@ -41,9 +41,9 @@ architecture VGA_Controller_V1 of VGA_Controller is
 	constant HbackPorchConst	: 	integer 	:= 800;
 	
 	constant VdisplayConst 		: 	integer 	:= 480;
-	constant VfrontPorchConst 	: 	integer 	:= 490;
-	constant VSyncConst			: 	integer 	:= 492;
-	constant VbackPorchConst	: 	integer 	:= 525;
+	constant VfrontPorchConst 	: 	integer 	:= 491;
+	constant VSyncConst			: 	integer 	:= 493;
+	constant VbackPorchConst	: 	integer 	:= 524;
 	
 begin
 	
@@ -67,9 +67,9 @@ PIXEL_Horizontal: Process(CLK)
 		elsif(HCount < HbackPorchConst) then 
 			HState <= BackPorch;
 			HAddress := 0;
-		elsif(HCount = 800) then
+		elsif(HCount = HbackPorchConst) then
 			HState <= Display;
-		elsif(HCount = 801) then 
+		elsif(HCount = HbackPorchConst+1) then 
 			HCount := 1;
 			VCount := VCount + 1;
 			VAddress := VCount;

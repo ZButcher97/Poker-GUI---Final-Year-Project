@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dC:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim
 Eqspi_slave_controller
-Z1 w1590314501
+Z1 w1590330172
 Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
@@ -18,27 +18,27 @@ Z5 8C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/QSPI_Sl
 Z6 FC:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/QSPI_Slave_Controller.vhd
 l0
 L5
-VL?P?8mCIdf7;0zG5LKeIV2
-!s100 d`0AJe2LGZ:@^S6cH=B381
+VBCJm;RHX9<IgZilkQ3WFz2
+!s100 Yoc3[kRK7fDjzfXAaYJ^23
 Z7 OV;C;10.5b;63
 31
-Z8 !s110 1590314607
+Z8 !s110 1590330176
 !i10b 1
-Z9 !s108 1590314607.000000
+Z9 !s108 1590330176.000000
 Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/QSPI_Slave_Controller.vhd|
 Z11 !s107 C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/QSPI_Slave_Controller.vhd|
 !i113 1
 Z12 o-93 -work work
 Z13 tExplicit 1 CvgOpt 0
-Aqspi_slave_controller_v1
+Aqspi_slave_controller_v3
 R2
 R3
 R4
-Z14 DEx4 work 21 qspi_slave_controller 0 22 L?P?8mCIdf7;0zG5LKeIV2
-l32
-L23
-Z15 V^YWAKKakJiKlf:X9[h:L22
-Z16 !s100 1?eG_TSJSKJd^EO`z?1O[0
+DEx4 work 21 qspi_slave_controller 0 22 BCJm;RHX9<IgZilkQ3WFz2
+l31
+L22
+VM;ZHD6J>dc71j5j`975[X1
+!s100 L5N7F>CKH8hdIW4W<7>he3
 R7
 31
 R8
@@ -49,63 +49,46 @@ R11
 !i113 1
 R12
 R13
-Aqspi_slave_controller_v2
+Eqspi_slave_controller_vhd_tst
+Z14 w1590329938
 R2
 R3
 R4
-R14
-l200
-L191
-VXLT08K>N4_D03JCZKAH1A2
-!s100 i_bkI<_g?3Xmz6aR>g6mk1
-R7
-31
-!s110 1590300268
-!i10b 1
-!s108 1590300268.000000
-R10
-R11
-!i113 1
-R12
-R13
-Eqspi_slave_controller_vhd_tst
-Z17 w1590299727
-R3
-R4
 R0
-Z18 8C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Slave_Controller.vht
-Z19 FC:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Slave_Controller.vht
+Z15 8C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Slave_Controller.vht
+Z16 FC:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Slave_Controller.vht
 l0
-L30
-VVLRkBo3E0?UO8g]i2jWDm0
-!s100 3WM_ShJBY^7g<BM1KMIOj3
+L5
+VJ2C<8Glc6>dPLlY@^JI<83
+!s100 =Tb0Bhm5DFhcHbVIX]KEP0
 R7
 32
-Z20 !s110 1590299730
+Z17 !s110 1590330178
 !i10b 1
-Z21 !s108 1590299730.000000
-Z22 !s90 -reportprogress|300|-work|work|C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Slave_Controller.vht|
-Z23 !s107 C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Slave_Controller.vht|
+Z18 !s108 1590330178.000000
+Z19 !s90 -reportprogress|300|-work|work|C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Slave_Controller.vht|
+Z20 !s107 C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Slave_Controller.vht|
 !i113 1
-Z24 o-work work
+Z21 o-work work
 R13
 Aqspi_slave_controller_arch
+R2
 R3
 R4
-DEx4 work 29 qspi_slave_controller_vhd_tst 0 22 VLRkBo3E0?UO8g]i2jWDm0
-l53
-L32
-VnbYBWTKB8=G5YZiXO3Kh92
-!s100 dkHW]Pk1G5X_HGCZfSdh@2
+Z22 DEx4 work 29 qspi_slave_controller_vhd_tst 0 22 J2C<8Glc6>dPLlY@^JI<83
+l28
+L7
+Z23 VfCa3c2A181GZ36[;eS:;N1
+Z24 !s100 h?P:iK2a_RMa>3;SS3nPf1
 R7
 32
-R20
+R17
 !i10b 1
-R21
-R22
-R23
+R18
+R19
+R20
 !i113 1
-R24
+R21
 R13
 Evga_controller_vhd_tst
 Z25 w1590227783
@@ -121,9 +104,9 @@ VVJ5jYK[fYeW20dU5D4iX82
 !s100 __J06U]]0B;3<:;G`=9OJ3
 R7
 31
-Z28 !s110 1590299426
+Z28 !s110 1590314774
 !i10b 1
-Z29 !s108 1590299425.000000
+Z29 !s108 1590314773.000000
 Z30 !s90 -reportprogress|300|-93|-work|work|C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/VGA_Controller.vht|
 Z31 !s107 C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/VGA_Controller.vht|
 !i113 1

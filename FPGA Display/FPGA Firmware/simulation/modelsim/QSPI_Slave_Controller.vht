@@ -1,31 +1,6 @@
--- Copyright (C) 2018  Intel Corporation. All rights reserved.
--- Your use of Intel Corporation's design tools, logic functions 
--- and other software and tools, and its AMPP partner logic 
--- functions, and any output files from any of the foregoing 
--- (including device programming or simulation files), and any 
--- associated documentation or information are expressly subject 
--- to the terms and conditions of the Intel Program License 
--- Subscription Agreement, the Intel Quartus Prime License Agreement,
--- the Intel FPGA IP License Agreement, or other applicable license
--- agreement, including, without limitation, that your use is for
--- the sole purpose of programming logic devices manufactured by
--- Intel and sold by Intel or its authorized distributors.  Please
--- refer to the applicable agreement for further details.
-
--- ***************************************************************************
--- This file contains a Vhdl test bench template that is freely editable to   
--- suit user's needs .Comments are provided in each section to help the user  
--- fill out necessary details.                                                
--- ***************************************************************************
--- Generated on "05/24/2020 06:49:56"
-                                                            
--- Vhdl Test Bench template for design  :  QSPI_Slave_Controller
--- 
--- Simulation tool : ModelSim-Altera (VHDL)
--- 
-
 LIBRARY ieee;                                               
-USE ieee.std_logic_1164.all;                                
+USE ieee.std_logic_1164.all;    
+use ieee.numeric_std.all;                            
 
 ENTITY QSPI_Slave_Controller_vhd_tst IS
 END QSPI_Slave_Controller_vhd_tst;
@@ -65,21 +40,119 @@ BEGIN
 init : PROCESS                                               
 -- variable declarations                                     
 BEGIN                                                        
-        -- code that executes only once                      
-WAIT;                                                       
-END PROCESS init;                                           
-always : PROCESS                                                                                
-BEGIN           
-	IO <= "0110";
-	wait for 10 ns;
-	CS_n <= '0';
-	wait for 80 ns;                                              
-        for i in 0 to 10000000 loop
+	CLK <= '0';
+	CS_n <= '0';  
+	wait for 100 ns;                                          
+        for i in 0 to 614417 loop
 		CLK <= '1';
 		wait for 40 ns;
 		CLK <= '0';
 		wait for 40 ns;
+	end loop; 
+	CS_n <= '1';   
+	wait for 100 ns;                
+WAIT;                                                       
+END PROCESS init;                                           
+always : PROCESS      
+variable Data_U4	:	std_logic_vector(3 downto 0) := (others => '0');
+variable Data_L4	:	std_logic_vector(3 downto 0) := (others => '1');
+variable Data_Test	:	std_logic_vector(7 downto 0);                                                                       
+BEGIN     
+	wait for 90 ns; 
+	wait until CLK <= '1';
+
+	--Instruction Data receive
+	wait until CLK <= '0'; 
+	IO <= x"6";  
+	wait until CLK <= '1';
+	wait until CLK <= '0'; 
+	IO <= x"9";  
+	wait until CLK <= '1';
+	wait for 10 ns;
+	assert (DataOut = x"69") report "Instruction Data incorrect";
+	assert (Address_H = "1110000000") report "Instruction H Address incorrect";
+	assert (Address_V = "1110000000") report "Instruction V Address incorrect";
+	
+	--Address 1 Data receive
+	wait until CLK <= '0'; 
+	IO <= x"5";
+	wait until CLK <= '1';
+	wait until CLK <= '0'; 
+	IO <= x"A";  
+	wait until CLK <= '1';
+	wait for 10 ns;
+	assert (DataOut = x"5A") report "Address 1 out incorrect" severity error;
+	assert (Address_H = "1110000000") report "Address 1 H Address incorrect";
+	assert (Address_V = "1100000000") report "Address 1 V Address incorrect";
+
+	--Address 2 Data receive
+	wait until CLK <= '0'; 
+	IO <= x"2";
+	wait until CLK <= '1';
+	wait until CLK <= '0'; 
+	IO <= x"3";  
+	wait until CLK <= '1';
+	wait for 10 ns;
+	assert (DataOut = x"23") report "Address 2 out incorrect" severity error;
+	assert (Address_H = "1110000000") report "Address 2 H Address incorrect";
+	assert (Address_V = "1010000000") report "Address 2 V Address incorrect";
+
+	--Address 3 Data receive
+	wait until CLK <= '0'; 
+	IO <= x"0";
+	wait until CLK <= '1';
+	wait until CLK <= '0'; 
+	IO <= x"7";  
+	wait until CLK <= '1';
+	wait for 10 ns;
+	assert (DataOut = x"07") report "Address 3 out incorrect" severity error;
+	assert (Address_H = "1110000000") report "Address 3 H Address incorrect";
+	assert (Address_V = "1000000000") report "Address 3 V Address incorrect";
+
+	--Alternate Data receive
+	wait until CLK <= '0'; 
+	IO <= x"E";
+	wait until CLK <= '1';
+	wait until CLK <= '0'; 
+	IO <= x"B";  
+	wait until CLK <= '1';
+	wait for 10 ns;
+	assert (DataOut = x"EB") report "Alternate out incorrect" severity error;
+	assert (Address_H = "1100000000") report "Alternate H Address incorrect";
+	assert (Address_V = "1110000000") report "Alternate V Address incorrect";
+	IO <= x"0";
+
+	--Dummy Data receive
+	wait until CLK <= '0'; 
+	wait until CLK <= '1';
+	wait until CLK <= '0'; 
+	wait until CLK <= '1';
+
+	
+	--Data Loop receive
+	for i in 0 to 307200 loop --640 x 480 (Frame Data)
+		wait until CLK <= '0';
+		IO <= Data_U4;
+		wait until CLK <= '1';
+		wait until CLK <= '0';
+		IO <= Data_L4;
+		wait until CLK <= '1';
+		wait for 10 ns;
+		Data_Test(7 downto 4) := Data_U4;
+		Data_Test(3 downto 0) := Data_L4;
+		assert (DataOut = Data_Test) report "Data out incorrect" severity error;
+		if(unsigned(Data_U4) = 15) then 
+			Data_U4 := "0000";
+		else
+			Data_U4 := std_logic_vector(unsigned(Data_U4) + 1);
+		end if;
+		if(unsigned(Data_L4) = 0) then 
+			Data_L4 := "1111";
+		else
+			Data_L4 := std_logic_vector(unsigned(Data_L4) - 1);
+		end if;
 	end loop;
+	
 WAIT;                                                        
 END PROCESS always;                                          
 END QSPI_Slave_Controller_arch;
