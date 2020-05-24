@@ -1,15 +1,15 @@
-Fitter Status : Successful - Sat May 23 11:26:08 2020
+Fitter Status : Successful - Sun May 24 11:02:13 2020
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : FinalYearProject
-Top-level Entity Name : Live_Buffer
+Top-level Entity Name : QSPI_Slave_Controller
 Family : Cyclone IV E
 Device : EP4CE22F17C6
 Timing Models : Final
-Total logic elements : 4,176 / 22,320 ( 19 % )
-    Total combinational functions : 4,176 / 22,320 ( 19 % )
-    Dedicated logic registers : 0 / 22,320 ( 0 % )
-Total registers : 0
-Total pins : 38 / 154 ( 25 % )
+Total logic elements : 280 / 22,320 ( 1 % )
+    Total combinational functions : 270 / 22,320 ( 1 % )
+    Dedicated logic registers : 138 / 22,320 ( < 1 % )
+Total registers : 138
+Total pins : 35 / 154 ( 23 % )
 Total virtual pins : 0
 Total memory bits : 0 / 608,256 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )

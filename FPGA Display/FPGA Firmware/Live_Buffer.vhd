@@ -25,13 +25,28 @@ architecture Live_Buffer_V1 of Live_Buffer is
 begin
 
 		PROCESS(CLK)
+			variable HAdd	:	integer	:= 0;
+			variable VAdd	:	integer	:= 0;
 		BEGIN
 			if(rising_edge(CLK)) then 
-				if(WriteRequest = '1') then 
-				matrix(to_integer(unsigned(H_Address)-1),to_integer(unsigned(V_Address)-1)) <= Data_In;
-				end if;
-			
+				--Set up variables with addresses
+				HAdd := to_integer(unsigned(H_Address));
+				VAdd := to_integer(unsigned(V_Address));
+				--Set output to requested input
 				Data_Out <= matrix(to_integer(unsigned(H_Address)),to_integer(unsigned(V_Address)));
+				--check address positions and move back 1 position, including overflow logic
+				if(WriteRequest = '1') then 
+					if(HAdd = 0) then 
+						if(VAdd = 0) then 
+						HAdd := 16;
+						VAdd := 16;
+						else
+							HAdd := 16;
+							VAdd := VAdd - 1;
+						end if;
+					end if;
+					matrix(HAdd,VAdd) <= Data_In; --write data into position
+				end if;
 			end if;		
 		END PROCESS;
 
