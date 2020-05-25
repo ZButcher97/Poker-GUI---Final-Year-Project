@@ -105,41 +105,50 @@ for runs in 1 to 4 loop
 	wait for 15000 ns;
 
 end loop;
-	
---	for i in 0 to 480 loop
---		for j in 0 to 640 loop
---			H_Address <= std_logic_vector(to_unsigned(j, H_Address'length));
---			V_Address <= std_logic_vector(to_unsigned(i, H_Address'length));
---			wait until SYNC_CLK = '1';
---			wait until SYNC_CLK = '0';
---		end loop;
---	end loop;
+
 WAIT;
 END PROCESS; 
 
---WRITE_SPI_DATA_2 : PROCESS
---BEGIN
---	wait for 11000 ns;
---	wait until QSPI_CLK = '1';
---	WriteRequest <= '1';
---	for i in 0 to 16 loop
---		for j in 0 to 16 loop
---			wait until QSPI_CLK = '1';
---			Data_In <= std_logic_vector(to_unsigned((i+j), Data_In'length));
---			wait until QSPI_CLK = '0';			
---		end loop;		
---	end loop;	
---	WriteRequest <= '0';
---	for i in 0 to 16 loop
---		for j in 0 to 16 loop
---			H_Address <= std_logic_vector(to_unsigned(j, H_Address'length));
---			V_Address <= std_logic_vector(to_unsigned(i, H_Address'length));
---			wait until SYNC_CLK = '1';
---			wait until SYNC_CLK = '0';
---		end loop;
---	end loop;
---END PROCESS;
---
+TestOutput : PROCESS
+variable HaddData : integer := 0;
+variable VaddData : integer := 0;
+BEGIN
+
+
+for runs in 1 to 4 loop
+	WAIT UNTIL falling_edge(WriteRequest);	
+	for i in 0 to 15 loop
+		for j in 0 to 15 loop
+			WAIT UNTIL falling_edge(SYNC_CLK);
+			WAIT FOR 10 ns;
+			HaddData := to_integer(unsigned(H_Address));
+			VaddData := to_integer(unsigned(V_Address));
+			if(HaddData = 1) then
+				HaddData := 15;
+				if(VaddData = 0) then 
+					VaddData := 15;
+				else
+					VaddData := VaddData -1;
+				end if;
+			elsif(HaddData = 0) then 
+				HaddData := 14;
+				if(VaddData = 0) then 
+					VaddData := 15;
+				else
+					VaddData := VaddData -1;
+				end if;
+			else
+				HaddData := HaddData - 2;
+			end if;
+			
+			ASSERT (Data_Out = std_logic_vector(to_unsigned((HaddData + VaddData), Data_Out'length))) REPORT "Data Out Incorrect: Expected: " & integer'image(HaddData + VaddData) SEVERITY ERROR;
+		end loop;
+	end loop;
+end loop;
+	
+
+WAIT;
+END PROCESS;
 
                                         
 END QSPI_Buffer_Controller_arch;

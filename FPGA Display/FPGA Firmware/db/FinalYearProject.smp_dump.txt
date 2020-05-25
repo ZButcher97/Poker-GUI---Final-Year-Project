@@ -1,6 +1,9 @@
 
-State Machine - |QSPI_Buffer_Controller|S_State
-Name S_State.OutputBuffer2 S_State.OutputBuffer1 S_State.Waiting 
-S_State.Waiting 0 0 0 
-S_State.OutputBuffer1 0 1 1 
-S_State.OutputBuffer2 1 0 1 
+State Machine - |QSPI_Slave_Controller|State
+Name State.Data State.Dummy State.Alternate State.Address State.Instruction State.Waiting 
+State.Waiting 0 0 0 0 0 0 
+State.Instruction 0 0 0 0 1 1 
+State.Address 0 0 0 1 0 1 
+State.Alternate 0 0 1 0 0 1 
+State.Dummy 0 1 0 0 0 1 
+State.Data 1 0 0 0 0 1 

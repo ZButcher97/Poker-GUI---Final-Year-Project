@@ -7,9 +7,9 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim
+Z0 dC:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim
 Ehard_block
-Z1 w1590175384
+Z1 w1590442679
 Z2 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
 Z3 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 g8;l:a_bzlE?3R3d7zk3Z0
 Z4 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
@@ -25,9 +25,9 @@ VF25TiLjh`DQcC8Z=zbJ?Y3
 !s100 A`ID_i56<Ua56=ZD=[EG=2
 Z10 OV;C;10.5b;63
 31
-Z11 !s110 1590177036
+Z11 !s110 1590442701
 !i10b 1
-Z12 !s108 1590177036.000000
+Z12 !s108 1590442701.000000
 Z13 !s90 -reportprogress|300|-93|-work|work|FinalYearProject_6_1200mv_85c_slow.vho|
 Z14 !s107 FinalYearProject_6_1200mv_85c_slow.vho|
 !i113 1
@@ -55,7 +55,7 @@ R14
 !i113 1
 R15
 R16
-Evga_controller
+Eqspi_buffer_controller
 R1
 R3
 R7
@@ -70,8 +70,8 @@ R8
 R9
 l0
 L79
-VNia3m@2DJOKabz2`o2jb@1
-!s100 >LC]M=ejVG7XSYH8?=K2O1
+VVED6Oi4]`8R`eDT22[TWV1
+!s100 laS?5`K;YKLPeS24[jNXB0
 R10
 31
 R11
@@ -91,14 +91,14 @@ R4
 R5
 R6
 R18
-DEx4 work 14 vga_controller 0 22 Nia3m@2DJOKabz2`o2jb@1
-l644
-L137
-VHhElQ3Bg=95BZTeY^_iAP3
-!s100 V==9[DV:`V3F;Ldf=>mWW2
+DEx4 work 22 qspi_buffer_controller 0 22 VED6Oi4]`8R`eDT22[TWV1
+l8711
+L135
+VGm5L4CJoSFaek8aB?QDlG0
+!s100 ^aW0`DKL44MOfSzh75DPb1
 R10
 31
-R11
+!s110 1590442702
 !i10b 1
 R12
 R13
@@ -106,44 +106,44 @@ R14
 !i113 1
 R15
 R16
-Evga_controller_vhd_tst
-Z19 w1590177014
+Eqspi_buffer_controller_vhd_tst
+Z19 w1590440725
 Z20 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 R5
 R6
 R0
-Z21 8C:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim/VGA_Controller.vht
-Z22 FC:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim/VGA_Controller.vht
+Z21 8C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Buffer_Controller.vht
+Z22 FC:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Buffer_Controller.vht
 l0
 L5
-VVJ5jYK[fYeW20dU5D4iX82
-!s100 __J06U]]0B;3<:;G`=9OJ3
+V<lQ_g<Qgh=Mhzb=JkR9>c3
+!s100 nMN=5djiFTMOFz=aA_3HJ3
 R10
 31
-Z23 !s110 1590177037
+Z23 !s110 1590442704
 !i10b 1
-R12
-Z24 !s90 -reportprogress|300|-93|-work|work|C:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim/VGA_Controller.vht|
-Z25 !s107 C:/Users/Jake/Desktop/Zack/FPGA Display/FPGA Firmware/simulation/modelsim/VGA_Controller.vht|
+Z24 !s108 1590442704.000000
+Z25 !s90 -reportprogress|300|-93|-work|work|C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Buffer_Controller.vht|
+Z26 !s107 C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Buffer_Controller.vht|
 !i113 1
 R15
 R16
-Avga_controller_arch
+Aqspi_buffer_controller_arch
 R20
 R5
 R6
-DEx4 work 22 vga_controller_vhd_tst 0 22 VJ5jYK[fYeW20dU5D4iX82
-l36
+DEx4 work 30 qspi_buffer_controller_vhd_tst 0 22 <lQ_g<Qgh=Mhzb=JkR9>c3
+l30
 L7
-V=>;ZnD[jaUMOV]cNdEBcI1
-!s100 JJW3eB3H<Q?bd8b<>NE;T2
+VPjbzJ3cQmY1I3eQK[0jkK2
+!s100 9b]1DS1RBAKE9QkmVHAMA0
 R10
 31
 R23
 !i10b 1
-R12
 R24
 R25
+R26
 !i113 1
 R15
 R16

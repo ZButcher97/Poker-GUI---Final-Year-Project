@@ -1,31 +1,6 @@
--- Copyright (C) 2018  Intel Corporation. All rights reserved.
--- Your use of Intel Corporation's design tools, logic functions 
--- and other software and tools, and its AMPP partner logic 
--- functions, and any output files from any of the foregoing 
--- (including device programming or simulation files), and any 
--- associated documentation or information are expressly subject 
--- to the terms and conditions of the Intel Program License 
--- Subscription Agreement, the Intel Quartus Prime License Agreement,
--- the Intel FPGA IP License Agreement, or other applicable license
--- agreement, including, without limitation, that your use is for
--- the sole purpose of programming logic devices manufactured by
--- Intel and sold by Intel or its authorized distributors.  Please
--- refer to the applicable agreement for further details.
-
--- ***************************************************************************
--- This file contains a Vhdl test bench template that is freely editable to   
--- suit user's needs .Comments are provided in each section to help the user  
--- fill out necessary details.                                                
--- ***************************************************************************
--- Generated on "05/25/2020 17:31:09"
-                                                            
--- Vhdl Test Bench template for design  :  Back_Buffer
--- 
--- Simulation tool : ModelSim-Altera (VHDL)
--- 
-
 LIBRARY ieee;                                               
-USE ieee.std_logic_1164.all;                                
+USE ieee.std_logic_1164.all;
+use ieee.numeric_std.all;                                 
 
 ENTITY Back_Buffer_vhd_tst IS
 END Back_Buffer_vhd_tst;
@@ -39,15 +14,17 @@ SIGNAL H_Address : STD_LOGIC_VECTOR(9 DOWNTO 0);
 SIGNAL V_Address : STD_LOGIC_VECTOR(9 DOWNTO 0);
 SIGNAL WriteData : STD_LOGIC;
 SIGNAL WriteRequest : STD_LOGIC;
+SIGNAL AReset_n : STD_LOGIC;
 COMPONENT Back_Buffer
 	PORT (
 	CLK : IN STD_LOGIC;
 	Data_In : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-	Data_Out : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+	Data_Out : BUFFER STD_LOGIC_VECTOR(7 DOWNTO 0);
 	H_Address : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
 	V_Address : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-	WriteData : OUT STD_LOGIC;
-	WriteRequest : IN STD_LOGIC
+	WriteData : BUFFER STD_LOGIC;
+	WriteRequest : IN STD_LOGIC;
+	AReset_n : IN STD_LOGIC
 	);
 END COMPONENT;
 BEGIN
@@ -60,20 +37,98 @@ BEGIN
 	H_Address => H_Address,
 	V_Address => V_Address,
 	WriteData => WriteData,
-	WriteRequest => WriteRequest
+	WriteRequest => WriteRequest,
+	AReset_n => AReset_n
 	);
-init : PROCESS                                               
--- variable declarations                                     
-BEGIN                                                        
-        -- code that executes only once                      
+
+INIT : PROCESS                                              
+BEGIN	
+	for i in 0 to 1050 loop
+      CLK <= '1';	
+		wait for 20 ns;
+		CLK <= '0';
+		wait for 20 ns;
+	end loop;
 WAIT;                                                       
-END PROCESS init;                                           
-always : PROCESS                                              
--- optional sensitivity list                                  
--- (        )                                                 
--- variable declarations                                      
-BEGIN                                                         
-        -- code executes for every event on sensitivity list  
+END PROCESS INIT; 
+
+ADDRESSES : PROCESS
+BEGIN
+	for runs in 0 to 3 loop
+		for i in 0 to 15 loop
+			for j in 0 to 15 loop
+				wait until falling_edge(CLK);
+				H_Address <= std_logic_vector(to_unsigned(j, H_Address'length));
+				V_Address <= std_logic_vector(to_unsigned(i, V_Address'length));				
+			end loop;
+		end loop;
+	end loop;
+WAIT;
+END PROCESS;
+	
+WriteDataToBuffer : PROCESS    
+variable DataH	:	integer := 0;
+variable DataV	:	integer := 0;
+                                                                        
+BEGIN	
+	WriteRequest <= '0';
+	WAIT UNTIL AReset_n = '1';
+	WAIT UNTIL falling_edge(CLK);
+	WAIT FOR 10 ns;
+	WriteRequest <= '1';
+	DataH := to_integer(unsigned(H_Address));
+	DataV := to_integer(unsigned(V_Address));
+	Data_In <= std_logic_vector(to_unsigned((DataH + DataV), Data_In'length));
+	for i in 0 to 15 loop
+		for j in 0 to 15 loop
+			WAIT UNTIL falling_edge(CLK);
+			WAIT FOR 5 ns;
+			DataH := to_integer(unsigned(H_Address));
+			DataV := to_integer(unsigned(V_Address));
+			Data_In <= std_logic_vector(to_unsigned((DataH + DataV), Data_In'length));
+			
+		end loop;
+	end loop;	
+	WAIT FOR 10 ns;
+	WriteRequest <= '0';
 WAIT;                                                        
-END PROCESS always;                                          
+END PROCESS WriteDataToBuffer;  
+
+TestOutput : PROCESS
+variable H_DataVal : integer := 0;
+variable v_DataVal : integer := 0;
+BEGIN
+	AReset_n <= '0';
+	WAIT FOR 130 ns;
+	AReset_n <= '1';
+	
+	WAIT UNTIL falling_edge(WriteRequest);
+	for i in 0 to 15 loop
+		for j in 0 to 15 loop
+			WAIT UNTIL rising_edge(CLK);
+			WAIT FOR 10 ns;
+			if(to_integer(unsigned(H_Address)) = 15) then 
+				H_DataVal := 1;
+				if(to_integer(unsigned(V_Address)) = 15) then 
+					V_DataVal := 0;
+				else
+					V_DataVal := to_integer(unsigned(V_Address)) + 1;
+				end if;
+			elsif(to_integer(unsigned(H_Address)) = 14) then
+				H_DataVal := 0;
+				if(to_integer(unsigned(V_Address)) = 15) then 
+					V_DataVal := 0;
+				else
+					V_DataVal := to_integer(unsigned(V_Address)) + 1;
+				end if;
+			else 
+				H_DataVal := to_integer(unsigned(H_Address)) + 2;
+				V_DataVal := to_integer(unsigned(V_Address));
+			end if;			
+			ASSERT (Data_Out = std_logic_vector(to_unsigned(H_DataVal+V_DataVal, Data_Out'length))) REPORT "Data Out Incorrect" SEVERITY ERROR;					
+			
+		end loop;
+	end loop;
+WAIT;
+END PROCESS;                                 
 END Back_Buffer_arch;

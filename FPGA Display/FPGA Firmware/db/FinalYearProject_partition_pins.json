@@ -4,115 +4,123 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "Data_Out[0]",
+					"name" : "DataOut[0]",
 					"strict" : false
 				},
 				{
-					"name" : "Data_Out[1]",
+					"name" : "DataOut[1]",
 					"strict" : false
 				},
 				{
-					"name" : "Data_Out[2]",
+					"name" : "DataOut[2]",
 					"strict" : false
 				},
 				{
-					"name" : "Data_Out[3]",
+					"name" : "DataOut[3]",
 					"strict" : false
 				},
 				{
-					"name" : "Data_Out[4]",
+					"name" : "DataOut[4]",
 					"strict" : false
 				},
 				{
-					"name" : "Data_Out[5]",
+					"name" : "DataOut[5]",
 					"strict" : false
 				},
 				{
-					"name" : "Data_Out[6]",
+					"name" : "DataOut[6]",
 					"strict" : false
 				},
 				{
-					"name" : "Data_Out[7]",
+					"name" : "DataOut[7]",
 					"strict" : false
 				},
 				{
-					"name" : "V_Address[4]",
+					"name" : "Address_H[0]",
 					"strict" : false
 				},
 				{
-					"name" : "H_Address[1]",
+					"name" : "Address_H[1]",
 					"strict" : false
 				},
 				{
-					"name" : "H_Address[2]",
+					"name" : "Address_H[2]",
 					"strict" : false
 				},
 				{
-					"name" : "H_Address[3]",
+					"name" : "Address_H[3]",
 					"strict" : false
 				},
 				{
-					"name" : "H_Address[4]",
+					"name" : "Address_H[4]",
 					"strict" : false
 				},
 				{
-					"name" : "H_Address[5]",
+					"name" : "Address_H[5]",
 					"strict" : false
 				},
 				{
-					"name" : "H_Address[6]",
+					"name" : "Address_H[6]",
 					"strict" : false
 				},
 				{
-					"name" : "H_Address[7]",
+					"name" : "Address_H[7]",
 					"strict" : false
 				},
 				{
-					"name" : "H_Address[8]",
+					"name" : "Address_H[8]",
 					"strict" : false
 				},
 				{
-					"name" : "H_Address[0]",
+					"name" : "Address_H[9]",
 					"strict" : false
 				},
 				{
-					"name" : "H_Address[9]",
+					"name" : "Address_V[0]",
 					"strict" : false
 				},
 				{
-					"name" : "V_Address[0]",
+					"name" : "Address_V[1]",
 					"strict" : false
 				},
 				{
-					"name" : "V_Address[9]",
+					"name" : "Address_V[2]",
 					"strict" : false
 				},
 				{
-					"name" : "V_Address[1]",
+					"name" : "Address_V[3]",
 					"strict" : false
 				},
 				{
-					"name" : "V_Address[2]",
+					"name" : "Address_V[4]",
 					"strict" : false
 				},
 				{
-					"name" : "V_Address[3]",
+					"name" : "Address_V[5]",
 					"strict" : false
 				},
 				{
-					"name" : "V_Address[5]",
+					"name" : "Address_V[6]",
 					"strict" : false
 				},
 				{
-					"name" : "V_Address[6]",
+					"name" : "Address_V[7]",
 					"strict" : false
 				},
 				{
-					"name" : "V_Address[7]",
+					"name" : "Address_V[8]",
 					"strict" : false
 				},
 				{
-					"name" : "V_Address[8]",
+					"name" : "Address_V[9]",
+					"strict" : false
+				},
+				{
+					"name" : "WriteData",
+					"strict" : false
+				},
+				{
+					"name" : "IO[0]",
 					"strict" : false
 				},
 				{
@@ -120,39 +128,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "Data_In[0]",
+					"name" : "IO[1]",
 					"strict" : false
 				},
 				{
-					"name" : "WriteRequest",
+					"name" : "IO[2]",
 					"strict" : false
 				},
 				{
-					"name" : "Data_In[1]",
+					"name" : "IO[3]",
 					"strict" : false
 				},
 				{
-					"name" : "Data_In[2]",
-					"strict" : false
-				},
-				{
-					"name" : "Data_In[3]",
-					"strict" : false
-				},
-				{
-					"name" : "Data_In[4]",
-					"strict" : false
-				},
-				{
-					"name" : "Data_In[5]",
-					"strict" : false
-				},
-				{
-					"name" : "Data_In[6]",
-					"strict" : false
-				},
-				{
-					"name" : "Data_In[7]",
+					"name" : "CS_n",
 					"strict" : false
 				}
 			]

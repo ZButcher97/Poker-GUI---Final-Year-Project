@@ -26,7 +26,7 @@ architecture QSPI_Slave_Controller_V3 of QSPI_Slave_Controller is
 	Constant	Address_Length			: integer := 8; 	-- 3 bytes
 	Constant	Alternate_Length		: integer := 10; 	-- 1 byte
 	Constant	Dummy_Length			: integer := 12; 	-- 1 byte
-	Constant	Data_Length				: integer := 614412; 	-- 640x480 bytes
+	Constant	Data_Length				: integer := 524; 	-- 512 for 16x16 testing, 614412 => 640x480 bytes for live
 
 begin
 
@@ -73,6 +73,8 @@ begin
 				Data_Count	:= 0;
 				Data_H		:= 0;
 				Data_V		:= 0;
+				WriteData 	<= '0';
+				DataOut <= (others => '0');
 						
 			when Instruction 	=>
 				case State_Count is 
@@ -82,10 +84,7 @@ begin
 						State_Count := 1;
 					when 1 =>
 						InReg(3 downto 0) := IO;
-						Address_H <= "1110000000";
-						Address_V <= "1110000000";
-						DataOut <= InReg;
-						WriteData <= '1';
+						--Check Correct Instruction
 						State_Count := 0;
 						
 					when others =>
@@ -99,10 +98,7 @@ begin
 						State_Count := 1;
 					when 1 =>
 						InReg(3 downto 0) := IO;
-						Address_H <= "1110000000";
-						Address_V <= "1100000000";
-						DataOut <= InReg;
-						WriteData <= '1';
+						--Check Correct Address 1
 						State_Count := 2;
 					when 2 =>
 						InReg(7 downto 4) := IO;
@@ -110,10 +106,7 @@ begin
 						State_Count := 3;
 					when 3 =>
 						InReg(3 downto 0) := IO;
-						Address_H <= "1110000000";
-						Address_V <= "1010000000";
-						DataOut <= InReg;
-						WriteData <= '1';
+						--Check Correct Address 2
 						State_Count := 4;
 					when 4 =>
 						InReg(7 downto 4) := IO;
@@ -121,10 +114,7 @@ begin
 						State_Count := 5;
 					when 5 =>
 						InReg(3 downto 0) := IO;
-						Address_H <= "1110000000";
-						Address_V <= "1000000000";
-						DataOut <= InReg;
-						WriteData <= '1';
+						--Check Correct Address 3
 						State_Count := 0;
 					when others =>
 				end case;
@@ -137,10 +127,7 @@ begin
 						State_Count := 1;
 					when 1 =>
 						InReg(3 downto 0) := IO;
-						Address_H <= "1100000000";
-						Address_V <= "1110000000";
-						DataOut <= InReg;
-						WriteData <= '1';
+						--Check Correct Alternate
 						State_Count := 0;
 					when others =>
 				end case;
@@ -157,9 +144,9 @@ begin
 						State_Count := 1;
 					when 1 =>
 						InReg(3 downto 0) := IO;
-						if(Data_H = 640) then 
+						if(Data_H = 15) then 
 							Data_H := 0;
-							if(Data_V = 480) then 
+							if(Data_V = 15) then 
 								Data_V := 0;
 							else
 								Data_V := Data_V + 1;									

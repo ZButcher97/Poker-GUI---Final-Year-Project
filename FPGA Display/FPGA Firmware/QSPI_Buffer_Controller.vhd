@@ -364,14 +364,14 @@ begin
 							if(to_integer(unsigned(V_Address)) = 0) then 
 								Vadd_OUT := 15;
 							else
-								Vadd_OUT := to_integer(unsigned(V_Address));
+								Vadd_OUT := to_integer(unsigned(V_Address)) - 1;
 							end if;
 						elsif(to_integer(unsigned(H_Address)) = 0) then 
 							Hadd_OUT := 15;
 							if(to_integer(unsigned(V_Address)) = 0) then 
 								Vadd_OUT := 15;
 							else
-								Vadd_OUT := to_integer(unsigned(V_Address));
+								Vadd_OUT := to_integer(unsigned(V_Address)) - 1;
 							end if;
 						else
 							Hadd_OUT := to_integer(unsigned(H_Address))-2;
@@ -392,18 +392,18 @@ begin
 							
 						else
 							if(to_integer(unsigned(H_Address)) = 1) then
-								Hadd_OUT := 14;
-								if(to_integer(unsigned(V_Address)) = 0) then 
-									Vadd_OUT := 15;
-								else
-									Vadd_OUT := to_integer(unsigned(V_Address));
-								end if;
-							elsif(to_integer(unsigned(H_Address)) = 0) then 
 								Hadd_OUT := 15;
 								if(to_integer(unsigned(V_Address)) = 0) then 
 									Vadd_OUT := 15;
 								else
-									Vadd_OUT := to_integer(unsigned(V_Address));
+									Vadd_OUT := to_integer(unsigned(V_Address)) - 1;
+								end if;
+							elsif(to_integer(unsigned(H_Address)) = 0) then 
+								Hadd_OUT := 14;
+								if(to_integer(unsigned(V_Address)) = 0) then 
+									Vadd_OUT := 15;
+								else
+									Vadd_OUT := to_integer(unsigned(V_Address)) - 1;
 								end if;
 							else
 								Hadd_OUT := to_integer(unsigned(H_Address))-2;
@@ -426,14 +426,14 @@ begin
 							if(to_integer(unsigned(V_Address)) = 0) then 
 								Vadd_OUT := 15;
 							else
-								Vadd_OUT := to_integer(unsigned(V_Address));
+								Vadd_OUT := to_integer(unsigned(V_Address)) - 1;
 							end if;
 						elsif(to_integer(unsigned(H_Address)) = 0) then 
 							Hadd_OUT := 15;
 							if(to_integer(unsigned(V_Address)) = 0) then 
 								Vadd_OUT := 15;
 							else
-								Vadd_OUT := to_integer(unsigned(V_Address));
+								Vadd_OUT := to_integer(unsigned(V_Address)) - 1;
 							end if;
 						else
 							Hadd_OUT := to_integer(unsigned(H_Address))-2;
@@ -441,7 +441,7 @@ begin
 						end if;
 							
 							
-						Data_Out <= matrix2(Hadd_OUT,Hadd_OUT);
+						Data_Out <= matrix2(Hadd_OUT,Vadd_OUT);
 						WriteReq <= '1';
 						Output_State <= Output;
 					
@@ -454,18 +454,18 @@ begin
 							
 						else
 							if(to_integer(unsigned(H_Address)) = 1) then
-								Hadd_OUT := 14;
-								if(to_integer(unsigned(V_Address)) = 0) then 
-									Vadd_OUT := 15;
-								else
-									Vadd_OUT := to_integer(unsigned(V_Address));
-								end if;
-							elsif(to_integer(unsigned(H_Address)) = 0) then 
 								Hadd_OUT := 15;
 								if(to_integer(unsigned(V_Address)) = 0) then 
 									Vadd_OUT := 15;
 								else
-									Vadd_OUT := to_integer(unsigned(V_Address));
+									Vadd_OUT := to_integer(unsigned(V_Address)) - 1;
+								end if;
+							elsif(to_integer(unsigned(H_Address)) = 0) then 
+								Hadd_OUT := 14;
+								if(to_integer(unsigned(V_Address)) = 0) then 
+									Vadd_OUT := 15;
+								else
+									Vadd_OUT := to_integer(unsigned(V_Address)) - 1;
 								end if;
 							else
 								Hadd_OUT := to_integer(unsigned(H_Address))-2;
@@ -475,7 +475,6 @@ begin
 							WriteReq <= '1';
 						end if;
 				end case;
-			
 		end case;
 	
 	end if;

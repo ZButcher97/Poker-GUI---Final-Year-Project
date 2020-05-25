@@ -244,7 +244,7 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -184 400 48 560)
+	(rect -192 416 40 576)
 	(text "QSPI_Slave" (rect 5 0 74 19)(font "Intel Clear" (font_size 8)))
 	(text "QSPI_Slave_inst" (rect 8 139 87 156)(font "Intel Clear" ))
 	(port
@@ -459,7 +459,7 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 640 136 936 280)
+	(rect 640 120 936 264)
 	(text "Back_Buffer" (rect 5 0 67 12)(font "Arial" ))
 	(text "Back_Buffer_inst" (rect 8 128 94 140)(font "Arial" ))
 	(port
@@ -529,7 +529,7 @@ refer to the applicable agreement for further details.
 	(drawing
 		(rectangle (rect 16 16 280 128))
 	)
-	(annotation_block (parameter)(rect 696 56 872 136))
+	(annotation_block (parameter)(rect 696 40 872 120))
 )
 (connector
 	(text "CLK_QSPI" (rect 138 120 187 137)(font "Intel Clear" ))
@@ -572,38 +572,6 @@ refer to the applicable agreement for further details.
 	(pt 128 240)
 )
 (connector
-	(text "CLK_QSPI" (rect -334 440 -285 457)(font "Intel Clear" ))
-	(pt -280 448)
-	(pt -184 448)
-)
-(connector
-	(text "IO_QSPI[3..0]" (rect -342 456 -279 473)(font "Intel Clear" ))
-	(pt -280 464)
-	(pt -184 464)
-	(bus)
-)
-(connector
-	(text "PIXEL_CLK" (rect -334 472 -280 489)(font "Intel Clear" ))
-	(pt -280 480)
-	(pt -184 480)
-)
-(connector
-	(text "SYNC_Data[7..0]" (rect 138 424 217 441)(font "Intel Clear" ))
-	(pt 48 432)
-	(pt 128 432)
-	(bus)
-)
-(connector
-	(text "CS_QSPI_n" (rect -334 424 -280 441)(font "Intel Clear" ))
-	(pt -280 432)
-	(pt -184 432)
-)
-(connector
-	(text "SYNC_Write" (rect 138 440 197 457)(font "Intel Clear" ))
-	(pt 48 448)
-	(pt 128 448)
-)
-(connector
 	(text "VGA_G_OUT[2..0]" (rect 1586 112 1670 129)(font "Intel Clear" ))
 	(pt 1664 120)
 	(pt 1752 120)
@@ -629,45 +597,6 @@ refer to the applicable agreement for further details.
 	(text "VGA_R_OUT[2..0]" (rect 1586 96 1670 113)(font "Intel Clear" ))
 	(pt 1664 104)
 	(pt 1752 104)
-	(bus)
-)
-(connector
-	(text "PIXEL_CLK" (rect 482 160 536 177)(font "Intel Clear" ))
-	(pt 536 168)
-	(pt 640 168)
-)
-(connector
-	(text "LIVE_WrReq" (rect 1026 176 1086 193)(font "Intel Clear" ))
-	(pt 936 184)
-	(pt 1016 184)
-)
-(connector
-	(text "VGA_Hadd_OUT[9..0]" (rect 440 176 542 193)(font "Intel Clear" ))
-	(pt 536 184)
-	(pt 640 184)
-	(bus)
-)
-(connector
-	(text "VGA_Vadd_OUT[9..0]" (rect 442 192 544 209)(font "Intel Clear" ))
-	(pt 536 200)
-	(pt 640 200)
-	(bus)
-)
-(connector
-	(text "SYNC_Data[7..0]" (rect 458 208 537 225)(font "Intel Clear" ))
-	(pt 536 216)
-	(pt 640 216)
-	(bus)
-)
-(connector
-	(text "SYNC_Write" (rect 474 224 533 241)(font "Intel Clear" ))
-	(pt 536 232)
-	(pt 640 232)
-)
-(connector
-	(text "Data_In[7..0]" (rect 1026 160 1086 177)(font "Intel Clear" ))
-	(pt 936 168)
-	(pt 1016 168)
 	(bus)
 )
 (connector
@@ -703,18 +632,6 @@ refer to the applicable agreement for further details.
 	(text "LIVE_WrReq" (rect 458 632 518 649)(font "Intel Clear" ))
 	(pt 520 640)
 	(pt 640 640)
-)
-(connector
-	(text "VGA_Hadd_OUT[9..0]" (rect -376 488 -274 505)(font "Intel Clear" ))
-	(pt -280 496)
-	(pt -184 496)
-	(bus)
-)
-(connector
-	(text "VGA_Vadd_OUT[9..0]" (rect -374 504 -272 521)(font "Intel Clear" ))
-	(pt -280 512)
-	(pt -184 512)
-	(bus)
 )
 (connector
 	(text "VGA_R_OUT[2..0]" (rect 1874 408 1958 425)(font "Intel Clear" ))
@@ -777,6 +694,89 @@ refer to the applicable agreement for further details.
 	(text "Data_Out[1..0]" (rect 1354 456 1423 473)(font "Intel Clear" ))
 	(pt 1416 464)
 	(pt 1528 464)
+	(bus)
+)
+(connector
+	(text "CLK_QSPI" (rect -342 456 -293 473)(font "Intel Clear" ))
+	(pt -288 464)
+	(pt -192 464)
+)
+(connector
+	(text "IO_QSPI[3..0]" (rect -350 472 -287 489)(font "Intel Clear" ))
+	(pt -288 480)
+	(pt -192 480)
+	(bus)
+)
+(connector
+	(text "PIXEL_CLK" (rect -342 488 -288 505)(font "Intel Clear" ))
+	(pt -288 496)
+	(pt -192 496)
+)
+(connector
+	(text "SYNC_Data[7..0]" (rect 130 440 209 457)(font "Intel Clear" ))
+	(pt 40 448)
+	(pt 120 448)
+	(bus)
+)
+(connector
+	(text "CS_QSPI_n" (rect -342 440 -288 457)(font "Intel Clear" ))
+	(pt -288 448)
+	(pt -192 448)
+)
+(connector
+	(text "SYNC_Write" (rect 130 456 189 473)(font "Intel Clear" ))
+	(pt 40 464)
+	(pt 120 464)
+)
+(connector
+	(text "VGA_Hadd_OUT[9..0]" (rect -384 504 -282 521)(font "Intel Clear" ))
+	(pt -288 512)
+	(pt -192 512)
+	(bus)
+)
+(connector
+	(text "VGA_Vadd_OUT[9..0]" (rect -382 520 -280 537)(font "Intel Clear" ))
+	(pt -288 528)
+	(pt -192 528)
+	(bus)
+)
+(connector
+	(text "PIXEL_CLK" (rect 482 144 536 161)(font "Intel Clear" ))
+	(pt 536 152)
+	(pt 640 152)
+)
+(connector
+	(text "LIVE_WrReq" (rect 1026 160 1086 177)(font "Intel Clear" ))
+	(pt 936 168)
+	(pt 1016 168)
+)
+(connector
+	(text "VGA_Hadd_OUT[9..0]" (rect 440 160 542 177)(font "Intel Clear" ))
+	(pt 536 168)
+	(pt 640 168)
+	(bus)
+)
+(connector
+	(text "VGA_Vadd_OUT[9..0]" (rect 442 176 544 193)(font "Intel Clear" ))
+	(pt 536 184)
+	(pt 640 184)
+	(bus)
+)
+(connector
+	(text "SYNC_Data[7..0]" (rect 458 192 537 209)(font "Intel Clear" ))
+	(pt 536 200)
+	(pt 640 200)
+	(bus)
+)
+(connector
+	(text "SYNC_Write" (rect 474 208 533 225)(font "Intel Clear" ))
+	(pt 536 216)
+	(pt 640 216)
+)
+(connector
+	(text "Data_In[7..0]" (rect 1026 144 1086 161)(font "Intel Clear" ))
+	(pt 936 152)
+	(pt 1016 152)
 	(bus)
 )
 (text "Input Pins and System Clock (PLL)" (rect -368 56 -167 75)(font "Intel Clear" (font_size 8)))
