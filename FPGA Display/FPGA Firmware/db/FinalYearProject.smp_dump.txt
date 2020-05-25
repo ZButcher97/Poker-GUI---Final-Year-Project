@@ -1,29 +1,6 @@
 
-State Machine - |FinalYearProject|QSPI_Slave:QSPI_Slave_inst|QSPI_Slave_Controller:inst|State
-Name State.Data State.Dummy State.Alternate State.Address State.Instruction State.Waiting 
-State.Waiting 0 0 0 0 0 0 
-State.Instruction 0 0 0 0 1 1 
-State.Address 0 0 0 1 0 1 
-State.Alternate 0 0 1 0 0 1 
-State.Dummy 0 1 0 0 0 1 
-State.Data 1 0 0 0 0 1 
-
-State Machine - |FinalYearProject|QSPI_Slave:QSPI_Slave_inst|QSPI_Buffer_Controller:inst1|S_State
+State Machine - |QSPI_Buffer_Controller|S_State
 Name S_State.OutputBuffer2 S_State.OutputBuffer1 S_State.Waiting 
 S_State.Waiting 0 0 0 
 S_State.OutputBuffer1 0 1 1 
 S_State.OutputBuffer2 1 0 1 
-
-State Machine - |FinalYearProject|VGA_Controller:VGA_Controller_inst|VState
-Name VState.BackPorch VState.V_sync VState.FrontPorch VState.Display 
-VState.Display 0 0 0 0 
-VState.FrontPorch 0 0 1 1 
-VState.V_sync 0 1 0 1 
-VState.BackPorch 1 0 0 1 
-
-State Machine - |FinalYearProject|VGA_Controller:VGA_Controller_inst|HState
-Name HState.BackPorch HState.H_sync HState.FrontPorch HState.Display 
-HState.Display 0 0 0 0 
-HState.FrontPorch 0 0 1 1 
-HState.H_sync 0 1 0 1 
-HState.BackPorch 1 0 0 1 

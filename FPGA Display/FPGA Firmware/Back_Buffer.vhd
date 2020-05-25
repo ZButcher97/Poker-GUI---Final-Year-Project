@@ -33,35 +33,56 @@ architecture Back_Buffer_V1 of Back_Buffer is
 begin
 
 		PROCESS(CLK)
-			variable HAdd	:	integer	:= 0;
-			variable VAdd	:	integer	:= 0;
+			variable HAddIN	:	integer	:= 0;
+			variable VAddIN	:	integer	:= 0;
+			
+			variable HAddOUT	:	integer	:= 0;
+			variable VAddOUT	:	integer	:= 0;
 		BEGIN
 			if(rising_edge(CLK)) then 
+			
 				--Set up variables with addresses
-				HAdd := to_integer(unsigned(H_Address));
-				VAdd := to_integer(unsigned(V_Address));
+				if(to_integer(unsigned(H_Address)) = 0) then
+					HAddOUT := 16;
+					if(to_integer(unsigned(V_Address)) = 0) then 
+						VAddOUT := 16;
+					else
+						VAddOUT := to_integer(unsigned(V_Address));
+					end if;
+				else
+					HAddOUT := to_integer(unsigned(H_Address))-1;
+					VAddOUT := to_integer(unsigned(V_Address));
+				end if;
+
+				
 				--Set output to requested input
-				Data_Out <= matrix(to_integer(unsigned(H_Address)),to_integer(unsigned(V_Address)));
+				Data_Out <= matrix(HAddOUT,VAddOUT);
+				
 				--check address positions and move back 1 position, including overflow logic
 				if(WriteRequest = '1') then 
-					if(Hadd = 0) then 
-						HAdd := HArr_Max-1;
-						if(VAdd = 0) then 							
-							VAdd := VArr_Max;
+					if(to_integer(unsigned(H_Address)) = 1) then 
+						HAddIN := HArr_Max;
+						if(to_integer(unsigned(V_Address)) = 1) then 							
+							VAddIN := VArr_Max-1;
+						elsif(to_integer(unsigned(V_Address)) = 0) then 
+							VAddIN := VArr_Max;
 						else
-							VAdd := VAdd - 1;
+							VAddIN := to_integer(unsigned(V_Address));
 						end if;													
-					elsif(Hadd = 1) then 
-						HAdd := HArr_Max;
-						if(VAdd = 0) then 							
-							VAdd := VArr_Max;
+					elsif(to_integer(unsigned(H_Address)) = 0) then 
+						HAddIN := HArr_Max-1;
+						if(VAddIN = 1) then 							
+							VAddIN := VArr_Max-1;
+						elsif(to_integer(unsigned(V_Address)) = 0) then 
+							VAddIN := VArr_Max;
 						else
-							VAdd := VAdd - 1;
-						end if;								
+							VAddIN := to_integer(unsigned(V_Address));
+						end if;							
 					else
-						Hadd := Hadd - 2;
+						HAddIN := HAddIN - 2;
+						VAddIN := to_integer(unsigned(V_Address));
 					end if;
-					matrix(HAdd,VAdd) <= Data_In; --write data into position
+					matrix(HAddIN,VAddIN) <= Data_In; --write data into position
 				end if;
 			end if;		
 		END PROCESS;
