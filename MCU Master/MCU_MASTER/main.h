@@ -3,10 +3,11 @@
 
 #include "mbed.h"
 #include "platform/mbed_thread.h"
-#include "Poker.h"
-#include "Network.h"
+// #include "Poker.h"
+// #include "Network.h"
 #include <string> 
 
+    //SPI 4
 #define SPI_COM_SCLK    PE_2
 #define SPI_COM_MOSI    PE_6
 #define SPI_COM_MISO    PE_5
@@ -15,8 +16,8 @@
 SPI PlayerCOM(SPI_COM_MOSI, SPI_COM_MISO, SPI_COM_SCLK);
 DigitalOut CS(SPI_COM_CS);
 
-Poker_Player Player1;
-Poker_Board Board;
+// Poker_Player Player1;
+// Poker_Board Board;
 
 //------Testing/simulating data------//
 uint32_t SIM_CARD1UID = 0xD057FEAB;
