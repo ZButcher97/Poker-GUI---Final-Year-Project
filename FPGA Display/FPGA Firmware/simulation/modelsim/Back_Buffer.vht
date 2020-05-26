@@ -108,13 +108,6 @@ BEGIN
 			WAIT UNTIL rising_edge(CLK);
 			WAIT FOR 10 ns;
 			if(to_integer(unsigned(H_Address)) = 15) then 
-				H_DataVal := 1;
-				if(to_integer(unsigned(V_Address)) = 15) then 
-					V_DataVal := 0;
-				else
-					V_DataVal := to_integer(unsigned(V_Address)) + 1;
-				end if;
-			elsif(to_integer(unsigned(H_Address)) = 14) then
 				H_DataVal := 0;
 				if(to_integer(unsigned(V_Address)) = 15) then 
 					V_DataVal := 0;
@@ -122,7 +115,7 @@ BEGIN
 					V_DataVal := to_integer(unsigned(V_Address)) + 1;
 				end if;
 			else 
-				H_DataVal := to_integer(unsigned(H_Address)) + 2;
+				H_DataVal := to_integer(unsigned(H_Address)) + 1;
 				V_DataVal := to_integer(unsigned(V_Address));
 			end if;			
 			ASSERT (Data_Out = std_logic_vector(to_unsigned(H_DataVal+V_DataVal, Data_Out'length))) REPORT "Data Out Incorrect" SEVERITY ERROR;					

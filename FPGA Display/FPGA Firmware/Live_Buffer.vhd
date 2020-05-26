@@ -32,7 +32,7 @@ architecture Live_Buffer_V1 of Live_Buffer is
 	signal matrix : array1_t; 
 begin
 
-		PROCESS(CLK)
+		PROCESS(CLK, AReset_n)
 			variable HAddIN	:	integer	:= 0;
 			variable VAddIN	:	integer	:= 0;
 			

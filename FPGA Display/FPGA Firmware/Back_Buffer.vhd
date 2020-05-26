@@ -22,7 +22,7 @@ entity Back_Buffer is
 		AReset_n			:	in		std_logic;
 		
 		--Output Ports
-		Data_Out			:	out	std_logic_vector(DataLength-1 downto 0);
+		Data_Out			:	out	std_logic_vector(DataLength-1 downto 0) := (others => '0');
 		WriteData		:	out	std_logic
 	);
 end Back_Buffer;
@@ -33,7 +33,7 @@ architecture Back_Buffer_V1 of Back_Buffer is
 	signal matrix : array1_t; 
 begin
 
-		PROCESS(CLK)
+		PROCESS(CLK, AReset_n)
 			variable HAddIN	:	integer	:= 0;
 			variable VAddIN	:	integer	:= 0;
 			
