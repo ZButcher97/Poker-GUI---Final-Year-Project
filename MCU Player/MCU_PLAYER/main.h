@@ -7,6 +7,7 @@
 #include "MFRC522.h"
 #include <string>
 
+#define SPI_Slave_Debug             0
 
     //SPI2
 #define     NFC1_SCLK               PB_13
@@ -31,8 +32,8 @@
 
 
 //Hardware Defines
-// MFRC522     NFC1(NFC1_MOSI, NFC1_MISO, NFC1_SCLK, NFC1_CS, NFC1_RST);
-// MFRC522     NFC2(NFC2_MOSI, NFC2_MISO, NFC2_SCLK, NFC2_CS, NFC2_RST);
+MFRC522     NFC1(NFC1_MOSI, NFC1_MISO, NFC1_SCLK, NFC1_CS, NFC1_RST);
+MFRC522     NFC2(NFC2_MOSI, NFC2_MISO, NFC2_SCLK, NFC2_CS, NFC2_RST);
 SPISlave    SPI_Slave(SPI_SLAVE_MOSI, SPI_SLAVE_MISO, SPI_SLAVE_SCLK, SPI_SLAVE_CS);
 Serial      PC(USBTX, USBRX);
 DigitalOut  OnBoardLED(LED_RED);
