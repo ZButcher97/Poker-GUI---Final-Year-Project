@@ -33,7 +33,7 @@ int main()
         ThisThread::sleep_for(500);
     }
 }
-
+/*
 //NFC 1 thread main function
 void thread_NFC1_main()
 {
@@ -114,3 +114,5 @@ void test()
 {
     thread_MasterCom.flags_set(0x20);
 }
+
+*/
