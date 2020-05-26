@@ -2,15 +2,20 @@
 
 int main()
 {
+    CS = 1;
     PlayerCOM.format(8,0);
     PlayerCOM.frequency(1000000);
     printf("Master Start...\n\r");
     ThisThread::sleep_for(5000);
     while(1)
     {        
+        CS = 0;
         int Data1 = PlayerCOM.write(0x23);
+        CS = 1;
         ThisThread::sleep_for(100);
+        CS = 0;
         int Data2 = PlayerCOM.write(0x45);
+        CS = 1;
         printf("Data1: %X\tData2: %X\n\r", Data1, Data2);
         ThisThread::sleep_for(1000);
     }

@@ -12,6 +12,7 @@
 #define SPI_COM_MOSI    PE_6
 #define SPI_COM_MISO    PE_5
 #define SPI_COM_CS      PE_4
+//#define SPI_COM_CS      PE_0
 
 SPI PlayerCOM(SPI_COM_MOSI, SPI_COM_MISO, SPI_COM_SCLK);
 DigitalOut CS(SPI_COM_CS);
