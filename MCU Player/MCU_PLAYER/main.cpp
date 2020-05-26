@@ -8,7 +8,7 @@ int main()
     
     // MasterComCS.fall(&test);
     SPI_Slave.format(8, 0);
-    SPI_Slave.frequency(100000);
+    SPI_Slave.frequency(1000000);
     // thread_Serial.start(callback(&eq_SerialPC, &EventQueue::dispatch_forever));
     // thread_NFC1.start(&thread_NFC1_main);    
     // thread_NFC2.start(&thread_NFC2_main);
