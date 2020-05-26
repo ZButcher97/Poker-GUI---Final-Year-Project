@@ -8,39 +8,39 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim
-Eback_buffer
-Z1 w1590479152
+Eqspi_buffer_controller
+Z1 w1590485467
 Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
-Z5 8C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/Back_Buffer.vhd
-Z6 FC:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/Back_Buffer.vhd
+Z5 8C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/QSPI_Buffer_Controller.vhd
+Z6 FC:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/QSPI_Buffer_Controller.vhd
 l0
 L5
-VTM[9^5[7X7@nG^;K_TJAf1
-!s100 IazVMNhLah1feA<:C:RZ`3
+V<2NnVIRV3^_gWTU^=cMTE0
+!s100 Oj?]CNbc]EC3[=GM;5Y<F3
 Z7 OV;C;10.5b;63
-32
-Z8 !s110 1590479207
+31
+Z8 !s110 1590485635
 !i10b 1
-Z9 !s108 1590479207.000000
-Z10 !s90 -reportprogress|300|-work|work|C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/Back_Buffer.vhd|
-Z11 !s107 C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/Back_Buffer.vhd|
+Z9 !s108 1590485635.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/QSPI_Buffer_Controller.vhd|
+Z11 !s107 C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/QSPI_Buffer_Controller.vhd|
 !i113 1
-Z12 o-work work
+Z12 o-93 -work work
 Z13 tExplicit 1 CvgOpt 0
-Aback_buffer_v1
+Aqspi_buffer_controller_vtest16
 R2
 R3
 R4
-DEx4 work 11 back_buffer 0 22 TM[9^5[7X7@nG^;K_TJAf1
-l34
-L31
-V_d5GeKPR6hNkXVcRQN<[81
-!s100 >o1Qcc=4=VcXH4;R?DIVY2
+DEx4 work 22 qspi_buffer_controller 0 22 <2NnVIRV3^_gWTU^=cMTE0
+l46
+L23
+VE^93=imKHn1]P[5g:X?C>2
+!s100 [6T7lVC`dBV`1kimk]KaD3
 R7
-32
+31
 R8
 !i10b 1
 R9
@@ -49,167 +49,44 @@ R11
 !i113 1
 R12
 R13
-Eback_buffer_vhd_tst
-Z14 w1590479302
+Eqspi_buffer_controller_vhd_tst
+Z14 w1590443304
 R2
 R3
 R4
 R0
-Z15 8C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/Back_Buffer.vht
-Z16 FC:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/Back_Buffer.vht
+Z15 8C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Buffer_Controller.vht
+Z16 FC:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Buffer_Controller.vht
 l0
 L5
-VPjS[Eo8aWXYkH[970M74h0
-!s100 f8?B=KJVXk14[MaDS7@FA2
+V<lQ_g<Qgh=Mhzb=JkR9>c3
+!s100 nMN=5djiFTMOFz=aA_3HJ3
 R7
-32
-Z17 !s110 1590479316
+31
+R8
 !i10b 1
-Z18 !s108 1590479316.000000
-Z19 !s90 -reportprogress|300|-work|work|C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/Back_Buffer.vht|
-Z20 !s107 C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/Back_Buffer.vht|
+R9
+Z17 !s90 -reportprogress|300|-93|-work|work|C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Buffer_Controller.vht|
+Z18 !s107 C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Buffer_Controller.vht|
 !i113 1
 R12
 R13
-Aback_buffer_arch
+Aqspi_buffer_controller_arch
 R2
 R3
 R4
-Z21 DEx4 work 19 back_buffer_vhd_tst 0 22 PjS[Eo8aWXYkH[970M74h0
+DEx4 work 30 qspi_buffer_controller_vhd_tst 0 22 <lQ_g<Qgh=Mhzb=JkR9>c3
 l30
 L7
-V<2f^<Ga7zNlQMER]BGXMb2
-!s100 gNHcLLnNIhh>fIJ3Dezzz0
+VdT1Y5Bz;0RDkTFo0[0h:X2
+!s100 0_afZ2=k2iUAU8B^W`jeF2
 R7
-32
+31
+R8
+!i10b 1
+R9
 R17
-!i10b 1
 R18
-R19
-R20
 !i113 1
 R12
-R13
-Elive_buffer
-Z22 w1590478932
-R2
-R3
-R4
-R0
-Z23 8C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/Live_Buffer.vhd
-Z24 FC:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/Live_Buffer.vhd
-l0
-L5
-VGobbRkI750`;Q;:RE]T_11
-!s100 [8Eo<YMj0cI@f9RPR=b5]3
-R7
-32
-Z25 !s110 1590478960
-!i10b 1
-Z26 !s108 1590478960.000000
-Z27 !s90 -reportprogress|300|-work|work|C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/Live_Buffer.vhd|
-Z28 !s107 C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/Live_Buffer.vhd|
-!i113 1
-R12
-R13
-Alive_buffer_v1
-R2
-R3
-R4
-DEx4 work 11 live_buffer 0 22 GobbRkI750`;Q;:RE]T_11
-l33
-L30
-V=DRbeEWXjiUH_TYB7DXmG0
-!s100 `J^dbFKR:?cSCz0lW[TJ40
-R7
-32
-R25
-!i10b 1
-R26
-R27
-R28
-!i113 1
-R12
-R13
-Elive_buffer_vhd_tst
-Z29 w1590436027
-R2
-R3
-R4
-R0
-Z30 8C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/Live_Buffer.vht
-Z31 FC:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/Live_Buffer.vht
-l0
-L6
-VbBnWQIcS]]czm7fdY51EN1
-!s100 EJ8OJA3a^AW>e247VMGn>3
-R7
-31
-Z32 !s110 1590478951
-!i10b 1
-Z33 !s108 1590478950.000000
-Z34 !s90 -reportprogress|300|-93|-work|work|C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/Live_Buffer.vht|
-Z35 !s107 C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/Live_Buffer.vht|
-!i113 1
-Z36 o-93 -work work
-R13
-Alive_buffer_arch
-R2
-R3
-R4
-DEx4 work 19 live_buffer_vhd_tst 0 22 bBnWQIcS]]czm7fdY51EN1
-l29
-L8
-V<N2[f7oGEDEhK=c?XBGZ21
-!s100 zIDOA3he3J^1b9fHl?NaZ2
-R7
-31
-R32
-!i10b 1
-R33
-R34
-R35
-!i113 1
-R36
-R13
-Eqspi_slave_controller
-Z37 w1590445940
-R2
-R3
-R4
-R0
-Z38 8C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/QSPI_Slave_Controller.vhd
-Z39 FC:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/QSPI_Slave_Controller.vhd
-l0
-L5
-VBCJm;RHX9<IgZilkQ3WFz2
-!s100 Yoc3[kRK7fDjzfXAaYJ^23
-R7
-31
-Z40 !s110 1590478785
-!i10b 1
-Z41 !s108 1590478785.000000
-Z42 !s90 -reportprogress|300|-93|-work|work|C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/QSPI_Slave_Controller.vhd|
-Z43 !s107 C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/QSPI_Slave_Controller.vhd|
-!i113 1
-R36
-R13
-Aqspi_slave_controller_v3
-R2
-R3
-R4
-DEx4 work 21 qspi_slave_controller 0 22 BCJm;RHX9<IgZilkQ3WFz2
-l31
-L22
-VH`m_jAJOF@AfAlnj@3R@43
-!s100 1Lb^MG@31Xe1?Ho9K2Aa<3
-R7
-31
-R40
-!i10b 1
-R41
-R42
-R43
-!i113 1
-R36
 R13

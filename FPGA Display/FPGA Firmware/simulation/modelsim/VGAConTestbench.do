@@ -11,7 +11,7 @@ add wave -noupdate -radix hexadecimal /vga_controller_vhd_tst/Green
 add wave -noupdate -radix hexadecimal /vga_controller_vhd_tst/Blue
 add wave -noupdate /vga_controller_vhd_tst/Hsync
 add wave -noupdate /vga_controller_vhd_tst/Vsync
-add wave -noupdate -radix unsigned /vga_controller_vhd_tst/SReset_n
+add wave -noupdate -radix unsigned /vga_controller_vhd_tst/AReset_n
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {0 ps} 0}
 quietly wave cursor active 0

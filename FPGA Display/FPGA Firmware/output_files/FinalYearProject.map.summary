@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Mon May 25 23:13:36 2020
+Analysis & Synthesis Status : Successful - Tue May 26 10:32:20 2020
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : FinalYearProject
-Top-level Entity Name : QSPI_Slave_Controller
+Top-level Entity Name : QSPI_Buffer_Controller
 Family : Cyclone IV E
-Total logic elements : 261
-    Total combinational functions : 249
-    Dedicated logic registers : 138
-Total registers : 138
-Total pins : 35
+Total logic elements : 7,511
+    Total combinational functions : 3,394
+    Dedicated logic registers : 4,196
+Total registers : 4196
+Total pins : 40
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

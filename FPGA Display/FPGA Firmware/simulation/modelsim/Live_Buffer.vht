@@ -9,8 +9,8 @@ ARCHITECTURE Live_Buffer_arch OF Live_Buffer_vhd_tst IS
 -- constants                                                 
 -- signals                                                   
 SIGNAL CLK : STD_LOGIC;
-SIGNAL Data_In : STD_LOGIC_VECTOR(7 DOWNTO 0);
-SIGNAL Data_Out : STD_LOGIC_VECTOR(7 DOWNTO 0);
+SIGNAL Data_IN : STD_LOGIC_VECTOR(7 DOWNTO 0);
+SIGNAL Data_OUT : STD_LOGIC_VECTOR(7 DOWNTO 0);
 SIGNAL H_Address : STD_LOGIC_VECTOR(9 DOWNTO 0);
 SIGNAL V_Address : STD_LOGIC_VECTOR(9 DOWNTO 0);
 SIGNAL WriteRequest : STD_LOGIC;
@@ -18,11 +18,11 @@ SIGNAL AReset_n	: STD_LOGIC;
 COMPONENT Live_Buffer
 	PORT (
 	CLK : IN STD_LOGIC;
-	Data_In : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+	Data_IN : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 	H_Address : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
 	V_Address : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
 	WriteRequest : IN STD_LOGIC;
-	Data_Out : BUFFER STD_LOGIC_VECTOR(7 DOWNTO 0);
+	Data_OUT : BUFFER STD_LOGIC_VECTOR(7 DOWNTO 0);
 	AReset_n : STD_LOGIC
 	);
 END COMPONENT;
@@ -31,8 +31,8 @@ BEGIN
 	PORT MAP (
 -- list connections between master ports and signals
 	CLK => CLK,
-	Data_In => Data_In,
-	Data_Out => Data_Out,
+	Data_IN => Data_IN,
+	Data_OUT => Data_OUT,
 	H_Address => H_Address,
 	V_Address => V_Address,
 	WriteRequest => WriteRequest,
@@ -41,85 +41,85 @@ BEGIN
 
 INIT : PROCESS                                              
 BEGIN	
-	for i in 0 to 1050 loop
+	FOR i IN 0 TO 1050 LOOP
       CLK <= '1';	
-		wait for 20 ns;
+		WAIT FOR 20 ns;
 		CLK <= '0';
-		wait for 20 ns;
-	end loop;
+		WAIT FOR 20 ns;
+	END LOOP;
 WAIT;                                                       
 END PROCESS INIT; 
 
 ADDRESSES : PROCESS
 BEGIN
-	for runs in 0 to 3 loop
-		for i in 0 to 15 loop
-			for j in 0 to 15 loop
-				wait until rising_edge(CLK);
-				H_Address <= std_logic_vector(to_unsigned(j, H_Address'length));
-				V_Address <= std_logic_vector(to_unsigned(i, V_Address'length));				
-			end loop;
-		end loop;
-	end loop;
+	FOR runs IN 0 TO 3 LOOP
+		FOR i IN 0 TO 15 LOOP
+			FOR j IN 0 TO 15 LOOP
+				WAIT UNTIL RISING_EDGE(CLK);
+				H_Address <= STD_LOGIC_VECTOR(TO_UNSIGNED(j, H_Address'LENGTH));
+				V_Address <= STD_LOGIC_VECTOR(TO_UNSIGNED(i, V_Address'LENGTH));				
+			END LOOP;
+		END LOOP;
+	END LOOP;
 WAIT;
 END PROCESS;
 	
 WriteData : PROCESS    
-variable DataH	:	integer := 0;
-variable DataV	:	integer := 0;
+VARIABLE DataH	:	INteger := 0;
+VARIABLE DataV	:	INteger := 0;
                                                                         
 BEGIN	
 	WriteRequest <= '0';
 	WAIT UNTIL AReset_n = '1';
-	WAIT UNTIL rising_edge(CLK);
+	WAIT UNTIL RISING_EDGE(CLK);
 	WAIT FOR 10 ns;
 	WriteRequest <= '1';
-	DataH := to_integer(unsigned(H_Address));
-	DataV := to_integer(unsigned(V_Address));
-	Data_In <= std_logic_vector(to_unsigned((DataH + DataV), Data_In'length));
-	for i in 0 to 15 loop
-		for j in 0 to 15 loop
-			WAIT UNTIL rising_edge(CLK);
+	DataH := TO_INteger(UNSIGNED(H_Address));
+	DataV := TO_INteger(UNSIGNED(V_Address));
+	Data_IN <= STD_LOGIC_VECTOR(TO_UNSIGNED((DataH + DataV), Data_IN'LENGTH));
+	FOR i IN 0 TO 15 LOOP
+		FOR j IN 0 TO 15 LOOP
+			WAIT UNTIL RISING_EDGE(CLK);
 			WAIT FOR 5 ns;
-			DataH := to_integer(unsigned(H_Address));
-			DataV := to_integer(unsigned(V_Address));
-			Data_In <= std_logic_vector(to_unsigned((DataH + DataV), Data_In'length));
+			DataH := TO_INteger(UNSIGNED(H_Address));
+			DataV := TO_INteger(UNSIGNED(V_Address));
+			Data_IN <= STD_LOGIC_VECTOR(TO_UNSIGNED((DataH + DataV), Data_IN'LENGTH));
 			
-		end loop;
-	end loop;	
+		END LOOP;
+	END LOOP;	
 	WAIT FOR 10 ns;
 	WriteRequest <= '0';
 WAIT;                                                        
 END PROCESS WriteData;  
 
 TestOutput : PROCESS
-variable H_DataVal : integer := 0;
-variable v_DataVal : integer := 0;
+VARIABLE H_DataVal : INteger := 0;
+VARIABLE v_DataVal : INteger := 0;
 BEGIN
 	AReset_n <= '0';
 	WAIT FOR 130 ns;
 	AReset_n <= '1';
 	
-	WAIT UNTIL falling_edge(WriteRequest);
-	for i in 0 to 15 loop
-		for j in 0 to 15 loop
-			WAIT UNTIL falling_edge(CLK);
+	WAIT UNTIL fallINg_edge(WriteRequest);
+	FOR i IN 0 TO 15 LOOP
+		FOR j IN 0 TO 15 LOOP
+			WAIT UNTIL fallINg_edge(CLK);
 			WAIT FOR 10 ns;
-			if(to_integer(unsigned(H_Address)) = 15) then 
+			if(TO_INteger(UNSIGNED(H_Address)) = 15) then 
 				H_DataVal := 0;
-				if(to_integer(unsigned(V_Address)) = 15) then 
+				if(TO_INteger(UNSIGNED(V_Address)) = 15) then 
 					V_DataVal := 0;
 				else
-					V_DataVal := to_integer(unsigned(V_Address)) + 1;
-				end if;
+					V_DataVal := TO_INteger(UNSIGNED(V_Address)) + 1;
+				END if;
 			else 
-				H_DataVal := to_integer(unsigned(H_Address)) + 1;
-				V_DataVal := to_integer(unsigned(V_Address));
-			end if;			
-			ASSERT (Data_Out = std_logic_vector(to_unsigned(H_DataVal+V_DataVal, Data_Out'length))) REPORT "Data Out Incorrect" SEVERITY ERROR;					
+				H_DataVal := TO_INteger(UNSIGNED(H_Address)) + 1;
+				V_DataVal := TO_INteger(UNSIGNED(V_Address));
+			END if;			
+			ASSERT (Data_OUT = STD_LOGIC_VECTOR(TO_UNSIGNED(H_DataVal+V_DataVal, Data_OUT'LENGTH))) REPORT "Data OUT Incorrect" SEVERITY ERROR;					
 			
-		end loop;
-	end loop;
+		END LOOP;
+	END LOOP;
 WAIT;
 END PROCESS;
                                         

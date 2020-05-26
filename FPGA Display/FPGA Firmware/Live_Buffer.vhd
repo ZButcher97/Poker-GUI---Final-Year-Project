@@ -1,69 +1,74 @@
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
+LIBRARY ieee;
+USE ieee.STD_LOGIC_1164.all;
+USE ieee.numeric_std.all;
 
-entity Live_Buffer is
+ENTITY Live_Buffer IS
 
-	generic
+	GENERIC
 	(
-		HArr_Max		:	integer 	:= 16;
-		VArr_Max		:	integer 	:= 16;
-		DataLength	:	integer	:=	8
+		HArr_Max		:	INTEGER 	:= 16;
+		VArr_Max		:	INTEGER 	:= 16;
+		DataLength	:	INTEGER	:=	8
 	);
 
-	port
+	PORT
 	(
-		--Input Ports
-		CLK				:	in		std_logic;
-		H_Address		: 	in 	std_logic_vector(9 downto 0);
-		V_Address		:	in		std_logic_vector(9 downto 0);
-		Data_In			:	in		std_logic_vector(DataLength-1 downto 0);
-		WriteRequest	:	in		std_logic;
-		AReset_n			:	in		std_logic;
+		--INput PORTs
+		CLK				:	IN		STD_LOGIC;
+		H_Address		: 	IN 	STD_LOGIC_VECTOR(9 DOWNTO 0);
+		V_Address		:	IN		STD_LOGIC_VECTOR(9 DOWNTO 0);
+		Data_IN			:	IN		STD_LOGIC_VECTOR(DataLength-1 DOWNTO 0);
+		WriteRequest	:	IN		STD_LOGIC;
+		AReset_n			:	IN		STD_LOGIC;
 		
-		--Output Ports
-		Data_Out			:	out	std_logic_vector(DataLength-1 downto 0)
+		--OUTput PORTs
+		Data_OUT			:	OUT	STD_LOGIC_VECTOR(DataLength-1 DOWNTO 0)
 	);
-end Live_Buffer;
+END Live_Buffer;
 
 
-architecture Live_Buffer_V1 of Live_Buffer is
-	type array1_t is array(0 to HArr_Max-1, 0 to VArr_Max-1) of std_logic_vector(DataLength-1 downto 0); 
-	signal matrix : array1_t; 
-begin
+ARCHITECTURE Live_Buffer_V1 OF Live_Buffer IS
+	TYPE ARRAY1_t IS ARRAY(0 TO HArr_Max-1, 0 TO VArr_Max-1) OF STD_LOGIC_VECTOR(DataLength-1 DOWNTO 0); 
+	SIGNAL matrix : ARRAY1_t; 
+BEGIN
 
-		PROCESS(CLK, AReset_n)
-			variable HAddIN	:	integer	:= 0;
-			variable VAddIN	:	integer	:= 0;
-			
-			variable HAddOUT	:	integer	:= 0;
-			variable VAddOUT	:	integer	:= 0;
-		BEGIN
-			if(AReset_n = '0') then 
-				Data_Out <= (others => '0');
-			elsif(falling_edge(CLK)) then 
-			
-				--Set up variables with addresses
-				HAddOUT := to_integer(unsigned(H_Address));
-				VAddOUT := to_integer(unsigned(V_Address));			
-				--Set output to requested input
-				Data_Out <= matrix(HAddOUT,VAddOUT);
+PROCESS(CLK, AReset_n)
+	VARIABLE HAddIN	:	INTEGER	:= 0;
+	VARIABLE VAddIN	:	INTEGER	:= 0;
+	
+	VARIABLE HAddOUT	:	INTEGER	:= 0;
+	VARIABLE VAddOUT	:	INTEGER	:= 0;
+BEGIN
+	IF(AReset_n = '0') THEN 
+		Data_OUT <= (OTHERS => '0');
+		
+	ELSIF(FALLING_EDGE(CLK)) THEN 
+		--Set up VARIABLEs with addresses
+		HAddOUT := TO_INTEGER(UNSIGNED(H_Address));
+		VAddOUT := TO_INTEGER(UNSIGNED(V_Address));			
+		--Set OUTput TO requested INput
+		Data_OUT <= matrix(HAddOUT,VAddOUT);
+		
+		--check address positions and move back 1 position, Including overflow logic
+		IF(WriteRequest = '1') THEN 												
+			IF(HAddOUT = 0) THEN 
+				HAddIN := HArr_Max-1;
+				IF(VAddOUT = 0) THEN 
+					VAddIN := VArr_Max-1;
+					
+				ELSE 
+					VAddIN := VAddOUT - 1;
+					
+				END IF;							
+			ELSE
+				HAddIN := HAddOUT - 1;
+				VAddIN := VAddOUT;
 				
-				--check address positions and move back 1 position, including overflow logic
-				if(WriteRequest = '1') then 												
-					if(HAddOUT = 0) then 
-						HAddIN := HArr_Max-1;
-						if(VAddOUT = 0) then 
-							VAddIN := VArr_Max-1;
-						else 
-							VAddIN := VAddOUT - 1;
-						end if;							
-					else
-						HAddIN := HAddOUT - 1;
-						VAddIN := VAddOUT;
-					end if;
-					matrix(HAddIN,VAddIN) <= Data_In; --write data into position
-				end if;
-			end if;		
-		END PROCESS;
-end Live_Buffer_V1;
+			END IF;
+			
+			matrix(HAddIN,VAddIN) <= Data_IN; --write data INTO position
+			
+		END IF;
+	END IF;		
+END PROCESS;
+END Live_Buffer_V1;
