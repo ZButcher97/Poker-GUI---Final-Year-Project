@@ -7,6 +7,7 @@
 #include "MFRC522.h"
 #include <string>
 
+
     //SPI2
 #define     NFC1_SCLK               PB_13
 #define     NFC1_MISO               PB_14         //TIM16_CH1N cannot be used with SPI2 in use
@@ -25,7 +26,8 @@
 #define     SPI_SLAVE_SCLK          PA_5
 #define     SPI_SLAVE_MISO          PA_6
 #define     SPI_SLAVE_MOSI          PA_7
-#define     SPI_SLAVE_CS            PA_4
+//#define     SPI_SLAVE_CS            PA_4
+#define     SPI_SLAVE_CS            PA_15
 
 
 //Hardware Defines

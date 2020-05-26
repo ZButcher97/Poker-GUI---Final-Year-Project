@@ -20,10 +20,13 @@ int main()
     SPI_Slave.reply(0x5A);   
     while(1)
     {
-        while(!SPI_Slave.receive()) {}
-        v = SPI_Slave.read();
-        SPI_Slave.reply(0x5A);         // Make this the next reply
-        PC.printf("Received Value: %x\n\r", v);
+        
+        if(SPI_Slave.receive() == 1)
+        {
+            v = SPI_Slave.read();
+            SPI_Slave.reply(0x5A);         // Make this the next reply
+            PC.printf("Received Value: %x\n\r", v);
+        }        
     }
     //Heartbeat LED
     while (true) {
