@@ -18,6 +18,11 @@
 "    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\"></script>                      "	"\n\r"\
 "                                                                                                                       "	"\n\r"\
 "    <title>Final Year Project - Zack Butcher</title>                                                                   "	"\n\r"\
+"    <script>                                                                                                           "   "\n\r"\
+"       window.setInterval(function(){                                                                                  "   "\n\r"\
+"           location.reload();                                                                                          "   "\n\r"\
+"       }, 5000);                                                                                                       "   "\n\r"\
+"    </script>                                                                                                          "   "\n\r"\
 "</head>                                                                                                                "	"\n\r"\
 "<body>                                                                                                                 "	"\n\r"\
 "    <style>                                                                                                            "	"\n\r"\

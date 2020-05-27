@@ -8,13 +8,16 @@
 #include "TCPSocket.h"
 #include <iostream>
 #include <string>
+#include "Poker.h"
 
 #define IP        "10.0.0.15"
 #define NETMASK   "255.0.0.0"
 #define GATEWAY   "10.0.0.1"
 
-extern int Network_Init();
+extern int Network();
 extern void thread_Network();
+void HTTP_UpdatePlayer(Poker_Player &Player, int PlayerNumber);
+void HTTP_UpdateBoard(Poker_Board &Board);
 enum CARD_SUITS { Spade, Heart, Diamond, Club};
 
 extern string Network_SetCards();
