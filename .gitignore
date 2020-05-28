@@ -1,17 +1,18 @@
-
 MCU Master/MCU_MASTER/BUILD/
 MCU Master/MCU_MASTER/.build
 MCU Master/MCU_MASTER/.mbed
 MCU Master/MCU_MASTER/projectfiles
 MCU Master/MCU_MASTER/*.py*
+
 MCU Player/MCU_PLAYER/BUILD/
 MCU Player/MCU_PLAYER/.build
 MCU Player/MCU_PLAYER/.mbed
 MCU Player/MCU_PLAYER/projectfiles
 MCU Player/MCU_PLAYER/*.py*
+
 MCU Board/
+
 .build
 .mbed
 projectfiles
 *.py*
-

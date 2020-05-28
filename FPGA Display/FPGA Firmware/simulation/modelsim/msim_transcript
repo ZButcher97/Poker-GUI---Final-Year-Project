@@ -1,0 +1,90 @@
+# Reading C:/intelFPGA_lite/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# do FinalYearProject_run_msim_gate_vhdl.do
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }
+# vlib gate_work
+# vmap work gate_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work gate_work 
+# Copying C:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {FinalYearProject_6_1200mv_85c_slow.vho}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:38:46 on May 26,2020
+# vcom -reportprogress 300 -93 -work work FinalYearProject_6_1200mv_85c_slow.vho 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package cycloneive_atom_pack
+# -- Loading package cycloneive_components
+# -- Compiling entity hard_block
+# -- Compiling architecture structure of hard_block
+# -- Loading package dffeas_pack
+# -- Loading package altera_primitives_components
+# -- Compiling entity QSPI_Buffer_Controller
+# -- Compiling architecture structure of QSPI_Buffer_Controller
+# End time: 10:38:49 on May 26,2020, Elapsed time: 0:00:03
+# Errors: 0, Warnings: 0
+# 
+# vcom -93 -work work {C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Buffer_Controller.vht}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:38:49 on May 26,2020
+# vcom -reportprogress 300 -93 -work work C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Buffer_Controller.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity QSPI_Buffer_Controller_vhd_tst
+# -- Compiling architecture QSPI_Buffer_Controller_arch of QSPI_Buffer_Controller_vhd_tst
+# End time: 10:38:49 on May 26,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps +transport_int_delays +transport_path_delays -sdftyp /i1=FinalYearProject_6_1200mv_85c_vhd_slow.sdo -L altera -L cycloneive -L gate_work -L work -voptargs="+acc"  QSPI_Buffer_Controller_vhd_tst
+# vsim -t 1ps "+transport_int_delays" "+transport_path_delays" -sdftyp /i1=FinalYearProject_6_1200mv_85c_vhd_slow.sdo -L altera -L cycloneive -L gate_work -L work -voptargs=""+acc"" QSPI_Buffer_Controller_vhd_tst 
+# Start time: 10:38:49 on May 26,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.qspi_buffer_controller_vhd_tst(qspi_buffer_controller_arch)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading altera.dffeas_pack
+# Loading altera.altera_primitives_components
+# Loading cycloneive.cycloneive_atom_pack(body)
+# Loading cycloneive.cycloneive_components
+# Loading work.qspi_buffer_controller(structure)
+# Loading work.hard_block(structure)
+# Loading ieee.std_logic_arith(body)
+# Loading cycloneive.cycloneive_io_obuf(arch)
+# Loading cycloneive.cycloneive_io_ibuf(arch)
+# Loading cycloneive.cycloneive_clkctrl(vital_clkctrl)
+# Loading cycloneive.cycloneive_ena_reg(behave)
+# Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)
+# Loading altera.dffeas(vital_dffeas)
+# Loading instances from FinalYearProject_6_1200mv_85c_vhd_slow.sdo
+# Loading timing data from FinalYearProject_6_1200mv_85c_vhd_slow.sdo
+# ** Warning: Design size of 1107205 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# ** Note: (vsim-3587) SDF Backannotation Successfully Completed.
+#    Time: 0 ps  Iteration: 0  Instance: /qspi_buffer_controller_vhd_tst File: C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Buffer_Controller.vht
+# 
+# add wave *
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: ZackB  Hostname: DESKTOP-SDGU70M  ProcessID: 14420
+#           Attempting to use alternate WLF file "./wlftfvmtts".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftfvmtts
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ** Error: Data Out Incorrect: Expected: 30
+#    Time: 10238415 ps  Iteration: 0  Instance: /qspi_buffer_controller_vhd_tst
+# End time: 10:51:37 on May 26,2020, Elapsed time: 0:12:48
+# Errors: 1, Warnings: 3

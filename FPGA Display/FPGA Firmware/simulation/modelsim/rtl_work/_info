@@ -1,0 +1,92 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim
+Eqspi_buffer_controller
+Z1 w1590485467
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/QSPI_Buffer_Controller.vhd
+Z6 FC:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/QSPI_Buffer_Controller.vhd
+l0
+L5
+V<2NnVIRV3^_gWTU^=cMTE0
+!s100 Oj?]CNbc]EC3[=GM;5Y<F3
+Z7 OV;C;10.5b;63
+31
+Z8 !s110 1590485635
+!i10b 1
+Z9 !s108 1590485635.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/QSPI_Buffer_Controller.vhd|
+Z11 !s107 C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/QSPI_Buffer_Controller.vhd|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Aqspi_buffer_controller_vtest16
+R2
+R3
+R4
+DEx4 work 22 qspi_buffer_controller 0 22 <2NnVIRV3^_gWTU^=cMTE0
+l46
+L23
+VE^93=imKHn1]P[5g:X?C>2
+!s100 [6T7lVC`dBV`1kimk]KaD3
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Eqspi_buffer_controller_vhd_tst
+Z14 w1590443304
+R2
+R3
+R4
+R0
+Z15 8C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Buffer_Controller.vht
+Z16 FC:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Buffer_Controller.vht
+l0
+L5
+V<lQ_g<Qgh=Mhzb=JkR9>c3
+!s100 nMN=5djiFTMOFz=aA_3HJ3
+R7
+31
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-93|-work|work|C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Buffer_Controller.vht|
+Z18 !s107 C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Buffer_Controller.vht|
+!i113 1
+R12
+R13
+Aqspi_buffer_controller_arch
+R2
+R3
+R4
+DEx4 work 30 qspi_buffer_controller_vhd_tst 0 22 <lQ_g<Qgh=Mhzb=JkR9>c3
+l30
+L7
+VdT1Y5Bz;0RDkTFo0[0h:X2
+!s100 0_afZ2=k2iUAU8B^W`jeF2
+R7
+31
+R8
+!i10b 1
+R9
+R17
+R18
+!i113 1
+R12
+R13

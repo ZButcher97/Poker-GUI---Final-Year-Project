@@ -1,0 +1,149 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim
+Ehard_block
+Z1 w1590485607
+Z2 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z3 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 g8;l:a_bzlE?3R3d7zk3Z0
+Z4 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z7 DPx10 cycloneive 21 cycloneive_components 0 22 Yj^f[Ven<H;0LiK:6PWEg0
+R0
+Z8 8FinalYearProject_6_1200mv_85c_slow.vho
+Z9 FFinalYearProject_6_1200mv_85c_slow.vho
+l0
+L34
+VF25TiLjh`DQcC8Z=zbJ?Y3
+!s100 A`ID_i56<Ua56=ZD=[EG=2
+Z10 OV;C;10.5b;63
+31
+Z11 !s110 1590485926
+!i10b 1
+Z12 !s108 1590485926.000000
+Z13 !s90 -reportprogress|300|-93|-work|work|FinalYearProject_6_1200mv_85c_slow.vho|
+Z14 !s107 FinalYearProject_6_1200mv_85c_slow.vho|
+!i113 1
+Z15 o-93 -work work
+Z16 tExplicit 1 CvgOpt 0
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+DEx4 work 10 hard_block 0 22 F25TiLjh`DQcC8Z=zbJ?Y3
+l64
+L50
+VZ2P8e]:^NT<7Y7=;nM1Vi3
+!s100 2S?JL;LJ@<3:BHXTNcXS]3
+R10
+31
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Eqspi_buffer_controller
+R1
+R3
+R7
+R2
+Z17 DPx6 altera 11 dffeas_pack 0 22 :S1C`o89Vbe5bV6`:6CaB3
+R4
+R5
+R6
+Z18 DPx6 altera 28 altera_primitives_components 0 22 z?[99Tn<@QGNik3V1c6ah1
+R0
+R8
+R9
+l0
+L79
+VVED6Oi4]`8R`eDT22[TWV1
+!s100 laS?5`K;YKLPeS24[jNXB0
+R10
+31
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Astructure
+R3
+R7
+R2
+R17
+R4
+R5
+R6
+R18
+DEx4 work 22 qspi_buffer_controller 0 22 VED6Oi4]`8R`eDT22[TWV1
+l8711
+L135
+VGm5L4CJoSFaek8aB?QDlG0
+!s100 ^aW0`DKL44MOfSzh75DPb1
+R10
+31
+!s110 1590485927
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Eqspi_buffer_controller_vhd_tst
+Z19 w1590443304
+Z20 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+R5
+R6
+R0
+Z21 8C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Buffer_Controller.vht
+Z22 FC:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Buffer_Controller.vht
+l0
+L5
+V<lQ_g<Qgh=Mhzb=JkR9>c3
+!s100 nMN=5djiFTMOFz=aA_3HJ3
+R10
+31
+Z23 !s110 1590485929
+!i10b 1
+Z24 !s108 1590485929.000000
+Z25 !s90 -reportprogress|300|-93|-work|work|C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Buffer_Controller.vht|
+Z26 !s107 C:/Users/ZackB/Documents/FinalYearProject/FPGA Display/FPGA Firmware/simulation/modelsim/QSPI_Buffer_Controller.vht|
+!i113 1
+R15
+R16
+Aqspi_buffer_controller_arch
+R20
+R5
+R6
+DEx4 work 30 qspi_buffer_controller_vhd_tst 0 22 <lQ_g<Qgh=Mhzb=JkR9>c3
+l30
+L7
+VdT1Y5Bz;0RDkTFo0[0h:X2
+!s100 0_afZ2=k2iUAU8B^W`jeF2
+R10
+31
+R23
+!i10b 1
+R24
+R25
+R26
+!i113 1
+R15
+R16

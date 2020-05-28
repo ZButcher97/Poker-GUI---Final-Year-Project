@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'SYNC_CLK'
+Slack : -5.743
+TNS   : -100.392
+
+Type  : Slow 1200mV 85C Model Setup 'QSPI_CLK'
+Slack : -3.722
+TNS   : -11682.637
+
+Type  : Slow 1200mV 85C Model Hold 'QSPI_CLK'
+Slack : 0.341
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'SYNC_CLK'
+Slack : 0.357
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'QSPI_CLK'
+Slack : -3.000
+TNS   : -4166.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SYNC_CLK'
+Slack : -3.000
+TNS   : -36.000
+
+Type  : Slow 1200mV 0C Model Setup 'SYNC_CLK'
+Slack : -5.071
+TNS   : -86.340
+
+Type  : Slow 1200mV 0C Model Setup 'QSPI_CLK'
+Slack : -3.214
+TNS   : -10145.664
+
+Type  : Slow 1200mV 0C Model Hold 'QSPI_CLK'
+Slack : 0.297
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'SYNC_CLK'
+Slack : 0.312
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'QSPI_CLK'
+Slack : -3.000
+TNS   : -4166.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SYNC_CLK'
+Slack : -3.000
+TNS   : -36.000
+
+Type  : Fast 1200mV 0C Model Setup 'SYNC_CLK'
+Slack : -3.030
+TNS   : -45.834
+
+Type  : Fast 1200mV 0C Model Setup 'QSPI_CLK'
+Slack : -1.791
+TNS   : -5059.267
+
+Type  : Fast 1200mV 0C Model Hold 'QSPI_CLK'
+Slack : 0.176
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'SYNC_CLK'
+Slack : 0.185
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'QSPI_CLK'
+Slack : -3.000
+TNS   : -4632.912
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SYNC_CLK'
+Slack : -3.000
+TNS   : -39.621
+
+------------------------------------------------------------

@@ -1,0 +1,6 @@
+
+State Machine - |QSPI_Buffer_Controller|S_State
+Name S_State.OutputBuffer2 S_State.OutputBuffer1 S_State.Waiting 
+S_State.Waiting 0 0 0 
+S_State.OutputBuffer1 0 1 1 
+S_State.OutputBuffer2 1 0 1 
